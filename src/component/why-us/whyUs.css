@@ -1,0 +1,22 @@
+/* body {
+  background-color: #f8f8f8;
+} */
+p {
+  color: #474747;
+}
+h2:after {
+  content: " ";
+  position: absolute;
+  bottom: -7px;
+  left: -7px;
+  right: 0;
+  height: 0.2rem;
+  width: 3rem;
+  margin: auto;
+  background: #ff7d85;
+}
+@media (min-width: 992px) {
+  .why-us-p {
+    width: 75%;
+  }
+}

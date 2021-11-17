@@ -1,0 +1,116 @@
+.our-team-container {
+  margin-top: 1em;
+  margin-bottom: 8em;
+}
+.team-container {
+  /* background-color: rgba(0, 255, 255, 0.02); */
+  /* height: 27rem; */
+  padding: 0.5em 1.5em;
+  /* box-shadow: 3px 3px 20px rgb(0 0 0 / 10%), -3px 3px 20px rgb(0 0 0 / 10%); */
+}
+@media only screen and (max-width: 772px) {
+  .team-container {
+    width: 90%;
+    /* height: 25rem; */
+    /* margin: 1em auto; */
+  }
+}
+.team-setion {
+  height: 15rem;
+  /* width: 30%; */
+  border-radius: 50px;
+  text-align: center;
+  position: relative;
+  padding: 0;
+}
+@media only screen and (max-width: 772px) {
+  .team-setion {
+    width: 70%;
+    height: 65vh;
+    margin: 1em auto;
+  }
+}
+.team-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+.team-header {
+  text-align: center;
+}
+.team-header h3 {
+  font-weight: 500;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: rgba(2, 56, 90, 0.8);
+}
+.team-header h3:after {
+  content: "";
+  display: block;
+  width: 3.5em;
+  height: 0.1em;
+  font-size: 1rem;
+  margin: 1em auto 1em;
+  border-radius: 10px;
+  background-color: #ff4752;
+}
+.img-overlay h5 {
+  font-weight: 100;
+}
+.img-overlay::after {
+  width: 100%;
+  left: 0;
+  position: absolute;
+}
+
+.team-setion::after {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  content: "";
+  height: 100%;
+  top: 0;
+  transition: 0.5s;
+}
+
+.team-setion:hover::after {
+  background: linear-gradient(
+    to bottom,
+    rgba(27, 27, 27, 0.1) 0,
+    rgba(34, 223, 225, 0.25) 25%,
+    rgba(34, 223, 255, 0.75) 75%,
+    rgba(34, 223, 255, 0.95) 100%
+  );
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1), -5px -5px 10px #fff;
+  transform: scale(1.02);
+  border-radius: 10px;
+}
+.img-overlay {
+  position: absolute;
+  width: 100%;
+  top: -1rem;
+  left: 0;
+  color: rgb(255, 255, 255);
+  z-index: -1;
+  transform: translateY(200px);
+  transition: all 0.5s cubic-bezier(0.13, 0.62, 0.81, 0.91) 0s;
+  /* background-color: chartreuse; */
+}
+.team-setion:hover .img-overlay {
+  transform: translateY(120px);
+  z-index: 3;
+}
+a:hover .bi-meta {
+  color: blue !important;
+}
+a:hover .bi-linkedin {
+  color: blue !important;
+}
+a:hover .bi-github {
+  color: blue !important;
+}
+@media only screen and (max-width: 772px) {
+  .team-setion {
+    height: 20rem;
+    font-size: x-large !important;
+  }
+}

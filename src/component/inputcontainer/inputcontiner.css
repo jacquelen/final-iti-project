@@ -1,0 +1,17 @@
+.add{
+    width: 100%;
+}
+.add:hover{
+    background-color:#EBECF0;
+    border: 1PX SOLID #EBECF0;
+    
+}
+.clear-icon{
+
+    padding: 0.5em;
+    border-radius: 50%;
+}
+.clear-icon:hover{
+    cursor: pointer;
+    background-color: rgba(173, 216, 230,0.3);
+}
