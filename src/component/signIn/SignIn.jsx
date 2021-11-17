@@ -16,7 +16,7 @@ function SignIn() {
         passwordRef.current.value
       )
       .then((user) => {
-        user ? history.push("/") : console.log(user);
+        user ? history.push("/Entrypage") : console.log(user);
       })
       .catch((err) => {
         console.log(err);
@@ -28,7 +28,7 @@ function SignIn() {
     auth
       .signInWithPopup(provider)
       .then((data) =>
-        data ? history.push("/") : console.log(data)
+        data ? history.push("/Entrypage") : console.log(data)
       )
       .catch((err) => console.log(err));
   };

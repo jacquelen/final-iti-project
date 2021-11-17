@@ -36,7 +36,7 @@ const SignUp =()=> {
         email,
         password
       );
-      await createUserDocument(user, { displayName }, photoURL).then((x)=>history.push("/"));
+      await createUserDocument(user, { displayName }, photoURL).then((x)=>history.push("/Entrypage"));
     } catch (error) {
       console.log("error", error);
     }
