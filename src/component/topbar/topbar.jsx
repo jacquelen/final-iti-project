@@ -13,11 +13,13 @@ function Topbar({setOpensidemenu}){
         >
 
             <Toolbar>
-            <h2
+            <h3
             style={{
-                flexGrow:1,
+              flexGrow: 1,
             }}
-            >Daily todo</h2>
+          >
+            {localStorage.getItem("bla")}
+          </h3>
 
             <Button
             style={{background:"None",border:"transparent",color:"#fff",backgroundColor:"#000",padding:"0.5em",borderRadius:"0.5em"}}

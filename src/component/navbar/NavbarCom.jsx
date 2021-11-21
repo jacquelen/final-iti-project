@@ -6,15 +6,18 @@ import { Link } from "react-router-dom";
 import { auth, FirebaseContext } from "../context/FireContext";
 import "./Navbar.css";
 const NavbarCom = () => {
-  const {  usersCollection } = useContext(FirebaseContext);
+  const { usersCollection } = useContext(FirebaseContext);
+  // const { userData } = useContext(currentUser);
   const [userData] = useAuthState(auth);
   const query =
     userData?.uid && usersCollection.where("uid", "==", userData.uid);
   const [currentUser] = useCollectionData(query, { idField: "id" });
-  var hidden=currentUser?"hidden":""
-  var hiddenLogout=!currentUser?"hidden":""
-  console.log(hidden);
-
+  var hidden = currentUser ? "hidden" : "";
+  var hiddenLogout = !currentUser ? "hidden" : "";
+  var x;
+  var z;
+  currentUser ? (x = currentUser[0]?.photoURL) : console.log(false);
+  currentUser ? (z = currentUser[0]?.displayName) : console.log(false);
   return (
     <div>
       <Navbar className="nav" collapseOnSelect expand="lg" variant="dark">
@@ -34,7 +37,7 @@ const NavbarCom = () => {
               </Link>
               <Link
                 className="text-decoration-none text-uppercase navList-color list-item list-menu-item2 sm-shadow text-center py-1 px-3"
-                to=""
+                to="/features"
               >
                 features
               </Link>
@@ -57,10 +60,16 @@ const NavbarCom = () => {
                 log in
               </Link>
               <Link
-                className={`text-decoration-none text-uppercase navList-color list-item list-menu-item5 sm-shadow text-center py-1 px-3 ${hiddenLogout}` }
+                className={`text-decoration-none text-uppercase navList-color list-item list-menu-item5 sm-shadow text-center py-1 px-3 ${hiddenLogout}`}
                 to="/ChatView"
               >
                 view chat
+              </Link>
+              <Link
+                className={`text-decoration-none text-uppercase navList-color list-item list-menu-item5 sm-shadow text-center py-1 px-3 ${hiddenLogout}`}
+                to="/Entrypage"
+              >
+                Board
               </Link>
               <button
                 className={`text-decoration-none text-uppercase navList-color list-item list-menu-item2 sm-shadow text-center py-1 px-3 border-0 bg-transparent ${hiddenLogout}`}
@@ -68,7 +77,12 @@ const NavbarCom = () => {
               >
                 Logout
               </button>
-
+              <img
+                src={x}
+                alt=""
+                className={`width ${hiddenLogout}`}
+                title={z}
+              />
             </Nav>
           </Navbar.Collapse>
         </Container>

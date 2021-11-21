@@ -6,7 +6,7 @@ import storeApi from '../uitilty/storeApi'
 
 function Inputcard({setOpen , listId ,type}){
     const {addamorecard ,addMorelist}=useContext(storeApi)
-    const[title,setTitle]=useState('')
+    const[title,setTitle]=useState([])
     const handleOnchange =(e)=>{
       setTitle(e.target.value)
     }

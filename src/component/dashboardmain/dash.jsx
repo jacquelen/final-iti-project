@@ -9,9 +9,7 @@ import { Card } from '@mui/material'
 
 function Dashmain(){
     const [data, setDate]=useState(store);
-    const addamorecard=(title,listId)=>{
-        // console.log(title ,"title",listId,"id")
-        const newCardid=uuid()
+    const addamorecard=(title,listId)=>{        const newCardid=uuid()
         const newCard={
             id:newCardid,
             title:title,
@@ -59,7 +57,6 @@ function Dashmain(){
     };
 const onDragEnd=(result)=>{
     const{destination,source,draggableId ,type}=result;
-    // console.log(destination,"d",source,"s",draggableId,"id");
 
     if(!destination){
         return;
@@ -121,7 +118,6 @@ const onDragEnd=(result)=>{
                 <div className="d-flex align-items-start">
         {data.listIds.map((listId , index)=>{
             const list = data.lists[listId];
-            console.log(list);
 
            return  <Dashboard list={list} key={listId} index={index} />
 

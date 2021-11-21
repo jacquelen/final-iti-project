@@ -1,13 +1,16 @@
-import "./entry.css";
-import { Link } from "react-router-dom";
-import EntryPopup from "./entryPopup/EntryPopup";
+import { Drawer, InputBase } from "@mui/material";
 import { useState } from "react";
-import { Drawer } from "@mui/material";
-import SideBar from "./sidebar/SideBar";
-function Entrypage() {
+import SideBar from "../sidebar/SideBar";
+import "./goals.css";
+import GoalsCard from "./goalsCard";
+import GoalsPopup from "./goalsPopup";
+
+const Goals = () => {
+  const [newtitle, setNewtitle] = useState("");
+  const [textArea, setTextArea] = useState("");
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
-  const [inputVal, setInputVal] = useState("");
+  const [goals, setGoals] = useState([]);
   const handleOpenPopUP = () => {
     setbuttonPopup(true);
     setpopupClose(true);
@@ -15,6 +18,33 @@ function Entrypage() {
   const handleClosePopUP = () => {
     setbuttonPopup(false);
     setpopupClose(false);
+  };
+  const handleOnChanges = (e) => {
+    setNewtitle(e.target.value);
+    localStorage.setItem("input", e.target.value);
+  };
+  const handleBlur = () => {
+    setNewtitle(newtitle);
+  };
+  const handleOnChangesTextarea = (e) => {
+    setTextArea(e.target.value);
+    localStorage.setItem("textarea", e.target.value);
+  };
+  const handleBlurTextarea = (e) => {
+    setTextArea(textArea);
+  };
+  const addGoals = (goal) => {
+    if (!goal.text || /^\s*$/.test(goal.text)) {
+      return;
+    }
+    const newGoals = [goal, ...goals];
+    setGoals(newGoals);
+    // console.log(todo, ...todos);
+  };
+  const removeGoal = (id) => {
+    const removedArr = [...goals].filter((goal) => goal.id !== id);
+
+    setGoals(removedArr);
   };
   return (
     <>
@@ -24,11 +54,11 @@ function Entrypage() {
             <SideBar />
           </div>
           <div className="col-9">
-            <div className="row justify-content-end align-items-baseline p-3">
+            <div className="row justify-content-start ps-0 align-items-baseline p-3">
               <div className="col-5 me-4">
-                <h1 className="home-head">Home</h1>
+                <h1 className="home-head">Goals</h1>
               </div>
-              <div className="col-4 ms-3">
+              <div className="col-4 ps-0 ms-3">
                 <div class="input-group input-group-sm mb-3 home-input">
                   <span class="input-group-text" id="inputGroup-sizing-sm">
                     <svg
@@ -80,68 +110,86 @@ function Entrypage() {
                   </svg>
                 </span>
               </div>
-              <div className="row ">
-                <div className="col-11  mt-5 border-bottom">
-                  <span className="fs-1 p-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-caret-down-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                    </svg>
-                  </span>
-                  <span className="home-task-content">Tasks Due Soon</span>
+            </div>
+            <div className="row my-5">
+              <div className="">
+                <div>
+                  <InputBase
+                    onChange={handleOnChanges}
+                    value={localStorage.getItem("input")}
+                    autoFocus
+                    onBlur={handleBlur}
+                    placeholder="Mission"
+                    style={{
+                      fontSize: "1.2rem",
+                      fontWeight: "bold",
+                    }}
+                  />
                 </div>
-              </div>
-              <div className="row">
-                <div className="col-11">
-                  <p className="text-center text-secondary p-5 ">
-                    No tasks due in the next 5 days
-                  </p>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-11 mt-3 border-bottom">
-                  <span className="fs-1 p-2">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      class="bi bi-caret-down-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" />
-                    </svg>
-                  </span>
-                  <span className="home-task-content">Recent Projects</span>
-                </div>
-              </div>
 
-              <div className="row ">
-                <div className="col-11 mt-2">
-                  <div className="project-content w-25 text-center">
-                    <div
-                      className="w-75 p-5 m-3 project-bar"
-                      onClick={handleOpenPopUP}
-                    >
-                      +
-                    </div>
-                    new project
-                  </div>
-
-                  {/*  */}
-                  <div className="project-content w-25  text-center">
-                    <div className="w-75 p-5 m-3 project-bar ">+</div>
-                    new project
-                  </div>
-                </div>
+                <InputBase
+                  onChange={handleOnChangesTextarea}
+                  value={localStorage.getItem("textarea")}
+                  autoFocus
+                  onBlur={handleBlurTextarea}
+                  style={{
+                    padding: "0.1em",
+                    width: "80%",
+                  }}
+                  placeholder="Inspire your colleagues with your company mission, vision or philosophy"
+                />
               </div>
             </div>
+
+            {goals.length === 0 ? (
+              <div className="row mt-5">
+                <div className="col-lg-6">
+                  <h3 className="my-3 text-color">
+                    Set and achieve strategic goals
+                  </h3>
+                  <p className="w-75 text-secondary ">
+                    Add your top level company goals to help teams prioritize
+                    and connect work to your organization’s objectives
+                  </p>
+                  <button
+                    type="button"
+                    className="btn btn-primary mt-3"
+                    onClick={handleOpenPopUP}
+                  >
+                    Add company goal
+                  </button>
+                </div>
+
+                <div className="col-lg-6">
+                  <img
+                    className="w-100"
+                    src="../../assets/people_on_podium_with_flag.svg"
+                    alt=""
+                  />
+                </div>
+              </div>
+            ) : (
+              <>
+                <div className="d-flex mt-5 align-items-center">
+                  <h3 className="mb-0">Goals</h3>
+                  <p className="add-icon mb-0 ms-3" onClick={handleOpenPopUP}>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      class="bi bi-plus-circle"
+                      viewBox="0 0 16 16"
+                    >
+                      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                      <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                    </svg>
+                  </p>
+                </div>
+
+                <GoalsCard goals={goals} removeGoal={removeGoal} />
+              </>
+            )}
           </div>
         </div>
         <Drawer
@@ -149,16 +197,14 @@ function Entrypage() {
           open={popupClose}
           onClose={() => setpopupClose(false)}
         >
-          <EntryPopup
+          <GoalsPopup
             trigger={buttonPopup}
             setTrigger={setbuttonPopup}
             setpopupClose={setpopupClose}
-            Submit={setInputVal}
+            onSubmit={addGoals}
           >
             <div className="d-flex justify-content-between">
-              <h3>project name </h3>
-              <p>{inputVal}</p>
-
+              <h3>Add Goal</h3>
               <span className="clear-icon" onClick={handleClosePopUP}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -179,10 +225,11 @@ function Entrypage() {
                 </svg>
               </span>
             </div>
-          </EntryPopup>
+          </GoalsPopup>
         </Drawer>
       </div>
     </>
   );
-}
-export { Entrypage };
+};
+
+export default Goals;

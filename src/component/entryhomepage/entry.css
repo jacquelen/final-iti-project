@@ -57,3 +57,11 @@
   color: gray;
   cursor: pointer;
 }
+.entry-pop-up {
+  background-color: white;
+  margin: 50px auto;
+  min-height: 300px;
+  border-radius: 10px;
+  max-width: 400px;
+  min-width: 400px;
+}

@@ -25,7 +25,6 @@ const SignUp =()=> {
     
       }
     );
-    console.log(userSignUp);
   }; 
   const history=useHistory()
  const handleSubmit = async (e) => {

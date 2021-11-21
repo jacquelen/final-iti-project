@@ -3,6 +3,8 @@ import Zoom from "react-reveal/Zoom";
 import { Link } from "react-router-dom";
 import Typewriter from "typewriter-effect";
 import "./chat.css";
+import letsChat from "../../images/lets-chat.json";
+import Lottie from "reactjs-lottie";
 
 function Chat() {
   return (
@@ -34,7 +36,12 @@ function Chat() {
             </Fade>
             <Fade right>
               <div className="col-lg-6">
-                <img className="w-100" src="../../assets/chat.png" alt="" />
+                <Lottie
+                  className="w-100"
+                  options={{
+                    animationData: letsChat,
+                  }}
+                />
               </div>
             </Fade>
           </div>

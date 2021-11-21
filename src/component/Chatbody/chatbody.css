@@ -156,7 +156,7 @@
 }
 
 .btn-icon {
-  color: var(--theme-color);
+  color: var(--theme-color) !important;
 }
 .check {
   font-size: 8px;

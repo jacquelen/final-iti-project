@@ -5,7 +5,7 @@ import { Agile } from "../agile/Agile";
 import { Tools } from "../Tools/Tools";
 import { Manage } from "../manage proj/Manage";
 import PeopleSay from "../whatPeopleSay/PeopleSay";
-import { Features } from "../MSfeatures/features";
+import { Features } from "../MSfeatures/Features";
 import { Ourteam } from "../ourTeam/ourTeam";
 
 function Home() {

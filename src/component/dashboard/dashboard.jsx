@@ -1,4 +1,3 @@
-/* eslint-disable array-callback-return */
 import React from 'react'
 import { Asrtolist } from '../astrolist/astrolist'
 import {Card} from "../card/card"
@@ -29,7 +28,7 @@ style={{backgroundColor:"#eee",
        }}
 >
     <CssBaseline/>
-    <Asrtolist title={list.title} listId={list.id}/>
+    <Asrtolist title={list.title} listId={list.id} x={list}/>
     <Droppable droppableId={list.id}>
         {(provided)=>(
             <div ref={provided.innerRef}{...provided.droppableProps} style={{marginTop:"2em"}}>

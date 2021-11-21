@@ -7,7 +7,7 @@ import notification from "./assists/app-notification-icon.svg";
 import chat from "./assists/discussion-icon.svg";
 import collaborate from "./assists/white-label-icon.svg";
 import notepade from "./assists/notes-icon.svg";
-import bookmarks from "./assists/bookmarks-icon.svg";
+import goals from "./assists/goals.png";
 import priority from "./assists/task-icon.svg";
 import viewboard from "./assists/activity-icon.svg";
 import checklist from "./assists/request-forms-icon.svg";
@@ -126,16 +126,16 @@ function Features() {
         <Row className="mt-4">
           <Col sm={12} md={4} lg={4}>
             <Fade left>
-              <Link to={"/bookmarks"} className="link-card">
+              <Link to={"/GoalsPage"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">
                     <Row className="justify-content-center align-items-center icon-row">
                       <Col xs={2} className="col-icon me-2">
-                        <img src={bookmarks} className="card-icon" />
+                        <img src={goals} className="card-icon" />
                       </Col>
 
                       <Col xs={6} className="col-p">
-                        <Card.Title className="p-card"> BookMarks</Card.Title>
+                        <Card.Title className="p-card"> Goals</Card.Title>
                       </Col>
                     </Row>
                     {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}

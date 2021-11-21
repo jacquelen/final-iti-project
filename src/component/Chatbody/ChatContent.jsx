@@ -39,6 +39,7 @@ const ChatContent = () => {
               : secondUserData.photoURL
           }
           msgTime={data.createdAt}
+          Img={data.Img}
         />
       ))}
     </div>

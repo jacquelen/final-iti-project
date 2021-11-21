@@ -2,6 +2,7 @@ import { createContext } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
+import "firebase/compat/storage";
 
 firebase.initializeApp({
   apiKey: "AIzaSyAEo32mGi1ASyy-k39OE9w5ZOtRV6l4g9E",
@@ -15,13 +16,20 @@ firebase.initializeApp({
 export var FirebaseContext = createContext();
 export var auth = firebase.auth();
 export var firestore = firebase.firestore();
+export var storage = firebase.storage();
 
 var messagesCollection = firestore.collection("messages");
 var usersCollection = firestore.collection("users");
 export const FirebaseProvider = ({ children }) => {
   return (
     <FirebaseContext.Provider
-      value={{ firebase, firestore, messagesCollection, usersCollection }}
+      value={{
+        firebase,
+        firestore,
+        messagesCollection,
+        usersCollection,
+        storage,
+      }}
     >
       {children}
     </FirebaseContext.Provider>

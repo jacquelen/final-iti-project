@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import "./checkList.css";
+import checkList from "../../images/check-list.json";
+import Lottie from "reactjs-lottie";
 function Checklist() {
   return (
     <>
@@ -31,10 +33,10 @@ function Checklist() {
             </div>
             <Fade right>
               <div className="col-lg-6 d-flex justify-content-center">
-                <img
-                  className="w-75"
-                  src="../../assets/checklist2.png"
-                  alt=""
+                <Lottie
+                  options={{
+                    animationData: checkList,
+                  }}
                 />
               </div>
             </Fade>
