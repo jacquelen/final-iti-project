@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import store from "../uitilty/store"
+import {unit} from "../uitilty/store"
 import {Dashboard} from "../dashboard/dashboard"
 import {v4 as uuid}from "uuid"
 import StoreApi from '../uitilty/storeApi'
@@ -8,13 +8,18 @@ import { DragDropContext, Droppable } from 'react-beautiful-dnd'
 import { Card } from '@mui/material'
 
 function Dashmain(){
-    const [data, setDate]=useState(store);
-    const addamorecard=(title,listId)=>{        const newCardid=uuid()
+    const [data, setDate]=useState(unit.data);
+    const [cards,setCards]=useState(unit.cards)
+    const addamorecard=(title,listId)=>{
+        console.log(title ,"title",listId,"id")  //1
+        const d=new Date()
+        const newCardid=uuid()
         const newCard={
             id:newCardid,
             title:title,
+            date:d.toLocaleString()
         }
-        const list=data.lists[listId]
+        const list = data.lists[listId];
         list.cards=[...list.cards,newCard];
         const newState={
             ...data,
@@ -24,6 +29,7 @@ function Dashmain(){
             },
         };
         setDate(newState);
+        console.log(list,"llllllllllllllllllllllllllllllllllllllllllllllllllllllllll");
     }
     const addMorelist=(title)=>{
          const newlistId=uuid();
@@ -55,8 +61,42 @@ function Dashmain(){
      };
      setDate(newState)
     };
+// need mofification
+    const updatecardtitle=(title,listId)=>{
+        const list=data.lists[listId]
+        console.log(list,"mmooooo")
+        list.cards.title=title;
+      const y  =list.cards.title
+      console.log(y,"yyyyyyyyyyyyy")
+        const newState={
+            ...data,
+            lists:{
+                ...data.lists,
+                [listId]:list
+            }
+        }
+            setDate(newState)
+    }
+    const setdatetask=(date,listId)=>{
+          const list=data.lists[listId]
+        //   list.cards.taskdate=date;
+        list.cards.taskdate=date;
+          const d=list.cards.taskdate;
+
+          console.log(d,"taskkkkkkkkkkkkkkk")
+          const newState={
+              ...data,
+              lists:{
+                  ...data.lists,
+                  [listId]:list
+              }
+          }
+          setDate(newState)
+    }
+
 const onDragEnd=(result)=>{
     const{destination,source,draggableId ,type}=result;
+    // console.log(destination,"d",source,"s",draggableId,"id");
 
     if(!destination){
         return;
@@ -101,7 +141,7 @@ const onDragEnd=(result)=>{
 };
 
     return(
-        <StoreApi.Provider value={{addamorecard,addMorelist, updateListtitle}}>
+        <StoreApi.Provider value={{addamorecard,addMorelist, updateListtitle,updatecardtitle,setdatetask}}>
             <DragDropContext onDragEnd={onDragEnd} >
                 <Droppable droppableId="Dashmain" type="list" direction="horizontal">
                     {(provided)=>(
@@ -118,7 +158,8 @@ const onDragEnd=(result)=>{
                 <div className="d-flex align-items-start">
         {data.listIds.map((listId , index)=>{
             const list = data.lists[listId];
-
+            console.log(list, "list//dash");
+            console.log(data.lists[listId].cards,"index")
            return  <Dashboard list={list} key={listId} index={index} />
 
         })}

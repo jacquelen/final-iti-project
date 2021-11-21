@@ -22,6 +22,7 @@ import { Wrapper } from "./component/wrapper/wrapper";
 import { Features } from "./component/MSfeatures/Features";
 import Goals from "./component/entryhomepage/goals/Goals";
 import { GoalsPage } from "./component/goalsPage/GoalsPage";
+import { QuicknotepadBoard } from "./component/quicknotepadBoard/quicknotepadBoard";
 
 function App() {
   return (
@@ -33,7 +34,7 @@ function App() {
             <Route component={Home} path="/" exact />
             <Route component={SignIn} path="/signIn" />
             <Route component={SignUp} path="/SignUp" />
-            <Route component={Features} path="/features" />
+            <Route component={Features} path="/Features" />
             <Route component={Kanbanboard} path="/kanbanboard" />
             <Route component={Priority} path="/priority" />
             <Route component={Notification} path="/Notification" />
@@ -49,6 +50,7 @@ function App() {
             <Route component={Wrapper} path="/wrapper" />
             <Route component={GoalsPage} path="/GoalsPage" />
             <Route component={Goals} path="/Goals" />
+            <Route component={QuicknotepadBoard} path="/QuicknotepadBoard" />
 
           </Switch> 
           <Footer />

@@ -34,7 +34,7 @@ style={{backgroundColor:"#eee",
             <div ref={provided.innerRef}{...provided.droppableProps} style={{marginTop:"2em"}}>
 
    {list.cards.map((card ,index)=>{
-   return <Card card={card} key={card.id} index={index} />
+   return <Card card={card} key={card.id} index={index} id={list.id} date={card.date} />
      })}
 
      {provided.placeholder}

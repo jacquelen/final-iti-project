@@ -21,15 +21,15 @@ const PopUp = (props) => {
     setTodos(newTodos);
   };
 
-  const completeTodo = (id) => {
-    let updatedTodos = todos.map((todo) => {
-      if (todo.id === id) {
-        todo.isComplete = !todo.isComplete;
-      }
-      return todo;
-    });
-    setTodos(updatedTodos);
-  };
+  // const completeTodo = (id) => {
+  //   let updatedTodos = todos.map((todo) => {
+  //     if (todo.id === id) {
+  //       todo.isComplete = !todo.isComplete;
+  //     }
+  //     return todo;
+  //   });
+  //   setTodos(updatedTodos);
+  // };
   const removeTodo = (id) => {
     const removedArr = [...todos].filter((todo) => todo.id !== id);
 
@@ -39,8 +39,8 @@ const PopUp = (props) => {
     <div className="pop-up shadow p-4">
       <div className="popup-inner">
         {props.children}
-        <div className="d-flex justify-content-between">
-          <div>
+        <div className="row justify-content-start">
+          <div className="col-4">
             <Box sx={{ width: 250 }} anchor="right" role="presentation right">
               <List>
                 {
@@ -92,12 +92,8 @@ const PopUp = (props) => {
               />
             </div>
           </div>
-          <div className="w-50">
-            <TodoList
-              todos={todos}
-              completeTodo={completeTodo}
-              removeTodo={removeTodo}
-            />
+          <div className="col-lg-7">
+            <TodoList todos={todos} removeTodo={removeTodo} />
           </div>
         </div>
       </div>

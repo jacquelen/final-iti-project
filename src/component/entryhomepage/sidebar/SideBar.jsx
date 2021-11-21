@@ -49,7 +49,7 @@ function SideBar() {
               My Tasks
             </li>
           </Link>
-          <Link to={"/"} className="link">
+          <Link to={"/QuicknotepadBoard"} className="link">
             <li>
               <span className="me-2">
                 <svg
@@ -64,7 +64,7 @@ function SideBar() {
                   <path d="M6.5 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm-4 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3zm8 0a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V3z" />
                 </svg>
               </span>
-              Dashboard
+              Quicknotepad
             </li>
           </Link>
           <Link className="link">

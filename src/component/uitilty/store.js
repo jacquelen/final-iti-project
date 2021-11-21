@@ -1,30 +1,30 @@
+const d= new Date();
+
 const cards =[
     {
         id:'card-1',
         title:'making tea',
-        label:[{
-          text:"front",
-          color:"cyan"
-        }],
-        tasks:[{
-            id:"",
-            title:"one",
-        }],
-        des:"des",
-        date:new Date()
+        date:d.toLocaleString(),
+        taskdate:"",
+       
     },
     {
         id:'card-2',
         title:'making milk',
+        date:d.toLocaleString(),
+        taskdate:"",
+        
+
     },
     {
         id:'card-3',
         title:'making water',
+        date:d.toLocaleString(),
+        taskdate:"",
+        
     },
-
-
 ]
-const data={
+ const data={
     lists:{
         'list-1':{
             id:'list-1',
@@ -40,6 +40,10 @@ const data={
     },
 
     listIds:['list-1','list-2'],
+
 }
 
-export default data
+ export  const unit={
+     cards,
+     data
+ }
