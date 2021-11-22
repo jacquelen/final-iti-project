@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
 function Features() {
   return (
     <>
-      <Zoom top>
+      <Fade top>
         <Container>
           <Row>
             <Col>
@@ -33,12 +33,12 @@ function Features() {
             </Col>
           </Row>
         </Container>
-      </Zoom>
+      </Fade>
       {/*  */}
       <Container className="mt-5 section__margin">
         <Row>
           <Col sm={12} md={4} lg={4}>
-            <Fade left>
+            <Fade left top>
               <Link to={"/kanbanboard"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">
@@ -95,7 +95,7 @@ function Features() {
           </Col>
           {/* 3 */}
           <Col sm={12} md={4} lg={4}>
-            <Fade left>
+            <Fade right top>
               <Link to={"/Notification"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">
@@ -206,7 +206,7 @@ function Features() {
         {/* third row */}
         <Row className="mt-4">
           <Col sm={12} md={4} lg={4}>
-            <Fade left>
+            <Fade left bottom>
               <Link to={"/Chat"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">
@@ -260,7 +260,7 @@ function Features() {
           </Col>
           {/* 3 */}
           <Col sm={12} md={4} lg={4}>
-            <Fade right>
+            <Fade right bottom>
               <Link to={"/checklist"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">

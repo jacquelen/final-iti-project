@@ -23,6 +23,13 @@ function Card({ card, index, id }) {
   };
   const handleOnChanges = (e) => {
     setNewtitle(e.target.value);
+    if(e.target.id==="1")
+    localStorage.setItem("firstCardTitle",e.target.value||newtitle)
+    if(e.target.id==="2")
+    localStorage.setItem("secondCardTitle",e.target.value||newtitle)
+    if(e.target.id==="3")
+    localStorage.setItem("thirdCardTitle",e.target.value||newtitle)
+    console.log(e.target);
   };
 
   const handleBlur = () => {
@@ -45,27 +52,6 @@ function Card({ card, index, id }) {
             {...provided.dragHandleProps}
             {...provided.draggableProps}
           >
-            {/* <Paper
-
-                            style={{
-                                width: "80%",
-                                margin: "auto",
-                                marginBottom: "0.5em",
-                                padding: "0.2em",
-                                marginTop: "0.5em"
-
-                            }}
-                        >
-                            <div className="d-flex p-2 justify-content-between">
-                                {card.title}
-                                <span onClick={handleOpenPopUP}>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
-                                        <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
-                                    </svg>
-                                </span>
-                            </div>
-
-                        </Paper> */}
                         <>
             {open ? (
               <div
@@ -77,6 +63,7 @@ function Card({ card, index, id }) {
                   onChange={handleOnChanges}
                   value={newtitle}
                   autoFocus
+                  id={card.id}
                   style={{
                     background: "#eee",
                     width: "100%",

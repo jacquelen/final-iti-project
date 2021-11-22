@@ -10,11 +10,12 @@ function Asrtolist({ title, listId }) {
   const [item, setItem] = useLocalStorage("name", "bla bla");
   const handleOnChanges = (e) => {
     setItem(e.target.value);
-    setNewtitle(title);
+    setNewtitle(localStorage.getItem("name"));
   };
 
   const handleBlur = () => {
     setOpen(false);
+    localStorage.setItem("name",newtitle)
     setItem(newtitle);
     updateListtitle(newtitle, listId);
   };

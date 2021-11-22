@@ -2,14 +2,14 @@ const d= new Date();
 
 const cards =[
     {
-        id:'card-1',
+        id:'1',
         title:'making tea',
         date:d.toLocaleString(),
         taskdate:"",
        
     },
     {
-        id:'card-2',
+        id:'2',
         title:'making milk',
         date:d.toLocaleString(),
         taskdate:"",
@@ -17,7 +17,7 @@ const cards =[
 
     },
     {
-        id:'card-3',
+        id:'3',
         title:'making water',
         date:d.toLocaleString(),
         taskdate:"",

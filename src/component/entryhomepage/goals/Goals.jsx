@@ -10,7 +10,7 @@ const Goals = () => {
   const [textArea, setTextArea] = useState("");
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
-  const [goals, setGoals] = useState([]);
+  const [goals, setGoals] = useState(JSON.parse(localStorage.getItem("goals"))||[]);
   const handleOpenPopUP = () => {
     setbuttonPopup(true);
     setpopupClose(true);
@@ -39,12 +39,16 @@ const Goals = () => {
     }
     const newGoals = [goal, ...goals];
     setGoals(newGoals);
+    localStorage.setItem("goals",JSON.stringify(newGoals))
     // console.log(todo, ...todos);
   };
+  console.log(goals);
   const removeGoal = (id) => {
     const removedArr = [...goals].filter((goal) => goal.id !== id);
 
     setGoals(removedArr);
+    localStorage.setItem("goals",JSON.stringify(removedArr))
+
   };
   return (
     <>

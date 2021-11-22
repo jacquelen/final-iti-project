@@ -19,7 +19,7 @@ import ChatView from "./component/chatView/Chat.View";
 import { Entrypage } from "./component/entryhomepage/entry";
 import { Dashmain } from "./component/dashboardmain/dash";
 import { Wrapper } from "./component/wrapper/wrapper";
-import { Features } from "./component/MSfeatures/Features";
+import { Features } from "./component/MSfeatures/features";
 import Goals from "./component/entryhomepage/goals/Goals";
 import { GoalsPage } from "./component/goalsPage/GoalsPage";
 import { QuicknotepadBoard } from "./component/quicknotepadBoard/quicknotepadBoard";

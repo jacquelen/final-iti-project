@@ -51,8 +51,6 @@ function Sidemenu({opensidemenu,setOpensidemenu,setbackgroundIamge }){
                                 backgroundRepeat:"no-repeat",
                                 backgroundSize:"cover"
                             }}
-
-
                              onClick={()=>{setbackgroundIamge(image)}}
                              ></div>
                           )

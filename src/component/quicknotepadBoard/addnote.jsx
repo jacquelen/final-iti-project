@@ -7,8 +7,7 @@ function Addnote({handleAddNote,handledeleteNote }){
 
  const handleChange=(event)=>{
      if(characterLimit-event.target.value.length>=0){
-         setNote(event.target.value)
-
+         setNote(event.target.value)       
      }
  }
  const handlieSaveClick=()=>{
