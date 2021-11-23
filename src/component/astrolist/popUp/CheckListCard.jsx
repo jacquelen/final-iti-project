@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./popup.css";
 const CheckListCard = (props) => {
   const [inputVal, setInputVal] = useState("");
-  const [id, setId] = useState(1);
   const handleSubmit = (e) => {
     e.preventDefault();
     props.onSubmit({ id: Math.floor(Math.random() * 1000), text: inputVal });
@@ -21,7 +20,7 @@ const CheckListCard = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-x-lg"
+              className="bi bi-x-lg"
               viewBox="0 0 16 16"
             >
               <path
@@ -40,11 +39,11 @@ const CheckListCard = (props) => {
           <label className="form-label">Title</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             value={inputVal}
             onChange={(e) => setInputVal(e.target.value)}
           ></input>
-          <button type="submit" class="btn btn-primary mt-5">
+          <button type="submit" className="btn btn-primary mt-5">
             Add
           </button>
         </form>

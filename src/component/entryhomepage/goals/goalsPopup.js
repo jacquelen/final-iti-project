@@ -4,7 +4,6 @@ const GoalsPopup = (props) => {
     const [inputVal, setInputVal] = useState("");
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(inputVal)
         props.onSubmit({ id: Math.floor(Math.random() * 1000), text: inputVal });
         props.setTrigger(false);
         props.setpopupClose(false);
@@ -19,11 +18,11 @@ const GoalsPopup = (props) => {
                         <label className="form-label">Title</label>
                         <input
                             type="text"
-                            class="form-control"
+                            className="form-control"
                             value={inputVal}
                             onChange={(e) => setInputVal(e.target.value)}
                         ></input>
-                        <button type="submit" class="btn btn-primary mt-5">
+                        <button type="submit" className="btn btn-primary mt-5">
                             Add
                         </button>
                     </form>

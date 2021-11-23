@@ -3,7 +3,6 @@ import {Note} from './note'
 import {v4 as uuid}from "uuid"
 import { Addnote } from './addnote'
 import "./not.css"
-import {Search} from "./search"
 function QuicknotepadBoard(){
     const [notes,setNotes]=useState([
         {
@@ -23,10 +22,9 @@ function QuicknotepadBoard(){
         },
 ])
 
-const [searchtext,setsearchText]=useState('')
+const [searchtext]=useState('')
 
        const addNote=(text)=>{
-           console.log(text)
            const date= new Date()
            const newNote={
                id:uuid(),

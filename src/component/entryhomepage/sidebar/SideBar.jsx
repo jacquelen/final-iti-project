@@ -15,7 +15,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-house-door-fill"
+                  className="bi bi-house-door-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z" />
@@ -32,7 +32,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-list-task"
+                  className="bi bi-list-task"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -57,7 +57,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-kanban"
+                  className="bi bi-kanban"
                   viewBox="0 0 16 16"
                 >
                   <path d="M13.5 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1h-11a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h11zm-11-1a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2h-11z" />
@@ -75,7 +75,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-paperclip"
+                  className="bi bi-paperclip"
                   viewBox="0 0 16 16"
                 >
                   <path d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0V3z" />
@@ -92,7 +92,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-credit-card-2-front"
+                  className="bi bi-credit-card-2-front"
                   viewBox="0 0 16 16"
                 >
                   <path d="M14 3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
@@ -110,7 +110,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-diagram-2"
+                  className="bi bi-diagram-2"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -130,7 +130,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-people-fill"
+                  className="bi bi-people-fill"
                   viewBox="0 0 16 16"
                 >
                   <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -152,7 +152,7 @@ function SideBar() {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-info-circle"
+                  className="bi bi-info-circle"
                   viewBox="0 0 16 16"
                 >
                   <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />

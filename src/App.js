@@ -23,13 +23,28 @@ import { Features } from "./component/MSfeatures/features";
 import Goals from "./component/entryhomepage/goals/Goals";
 import { GoalsPage } from "./component/goalsPage/GoalsPage";
 import { QuicknotepadBoard } from "./component/quicknotepadBoard/quicknotepadBoard";
+import { ToastContainer } from 'react-toastify';
+import { toast } from "react-toastify";
+import "react-toastify/dist/inject-style";
+import "react-toastify/dist/ReactToastify.min.css";
 
 function App() {
+  setInterval( () => {
+      toast.info("your teammate add comment", {
+        className: "custom-toast",
+        draggable: true,
+        position: toast.POSITION.BOTTOM_LEFT,
+        toastId: "welcome to Astro",
+
+      });
+    },500000
+  )
   return (
     <>
       <Router>
         <div className="overflow-hidden">
           <NavbarCom />
+<ToastContainer />
           <Switch>
             <Route component={Home} path="/" exact />
             <Route component={SignIn} path="/signIn" />

@@ -3,7 +3,6 @@ import { currentUserContext } from "../context/CurrentUser";
 import { FirebaseContext } from "../context/FireContext";
 import { SecondUserContext } from "../context/secondUser";
 import InputEmoji from "react-input-emoji";
-import UploadImgFirebase from "./uploadImgFirebase";
 
 const ChatFooter = () => {
   const [msgContent, setMsgContent] = useState("");
@@ -13,6 +12,7 @@ const ChatFooter = () => {
 
   const { secondUserData } = useContext(SecondUserContext);
   const { messagesCollection, storage } = useContext(FirebaseContext);
+
   const handleSendMsg = (e) => {
     e.preventDefault();
     if (file) {
@@ -43,6 +43,7 @@ const ChatFooter = () => {
     }
     setImg("");
     setMsgContent("");
+
   };
   const Upload = (e) => {
     const reader = new FileReader();
@@ -55,6 +56,7 @@ const ChatFooter = () => {
 
     setFile(e.target.files[0]);
   };
+
   return (
     <div className="chat-area-footer pt-2 mt-3">
       <img src={img} alt="" width="50px" />
@@ -67,7 +69,7 @@ const ChatFooter = () => {
                 width="25"
                 height="25"
                 fill="#0086ff"
-                class="bi bi-plus-circle"
+                className="bi bi-plus-circle"
                 viewBox="0 0 16 16"
               >
                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -90,7 +92,7 @@ const ChatFooter = () => {
                 width="25"
                 height="25"
                 fill="#0086ff"
-                class="bi bi-send btn-icon mx-2 fs-4"
+                className="bi bi-send btn-icon mx-2 fs-4"
                 viewBox="0 0 16 16"
               >
                 <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z" />

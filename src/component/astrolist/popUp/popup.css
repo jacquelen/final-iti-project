@@ -14,6 +14,18 @@
   min-width: 400px;
   min-height: 200px;
   border-radius: 10px;
+  position: absolute;
+  left: 0;
+  background-color: white;
+}
+.childCard {
+  max-width: 400px;
+  min-width: 400px;
+  min-height: 200px;
+  border-radius: 10px;
+  background-color: white;
+  position: absolute;
+  right: 100px;
 }
 .complete {
   text-decoration: line-through;
@@ -24,4 +36,9 @@
 }
 .clear-icon {
   z-index: 900;
+}
+.profile-img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
 }

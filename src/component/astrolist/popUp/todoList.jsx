@@ -4,8 +4,7 @@ import TodoListChild from "./childCard/todoListChild";
 
 const TodoList = ({ todos, removeTodo }) => {
   const [showChild, setshowChild] = useState(false);
-  const [todosChild, settodosChild] = useState([]);
-  const [todoss, setTodoss] = useState(todos);
+  const [todosChild, settodosChild] = useState(JSON.parse(localStorage.getItem("todosss"))||[]);
   const [tdId, setTdId] = useState();
 
   const addTodoChild = (todo) => {
@@ -14,11 +13,7 @@ const TodoList = ({ todos, removeTodo }) => {
     }
     const newTodos = [todo, ...todosChild];
     settodosChild(newTodos);
-    let updatedTodos = todos.map((todo) => {
-      todo.children = todosChild;
-      return todo;
-    });
-    setTodoss(updatedTodos);
+    localStorage.setItem("todosss",JSON.stringify(newTodos)) 
   };
   const completeTodoChild = (resIndex) => {
     let updatedTodos = todosChild.map((todo, index) => {
@@ -27,6 +22,7 @@ const TodoList = ({ todos, removeTodo }) => {
       }
       return todo;
     });
+    localStorage.setItem("todosss",JSON.stringify(updatedTodos)) 
     settodosChild(updatedTodos);
   };
   const removeTodoChild = (resIndex) => {
@@ -35,6 +31,8 @@ const TodoList = ({ todos, removeTodo }) => {
     );
 
     settodosChild(removedArr);
+    localStorage.setItem("todosss",JSON.stringify(removedArr)) 
+
   };
   return todos.map((todo, index) => (
     <div key={index}>
@@ -48,7 +46,7 @@ const TodoList = ({ todos, removeTodo }) => {
                   width="20"
                   height="20"
                   fill="currentColor"
-                  class="bi bi-check2-square"
+                  className="bi bi-check2-square"
                   viewBox="0 0 16 16"
                 >
                   <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z" />
@@ -64,7 +62,7 @@ const TodoList = ({ todos, removeTodo }) => {
                   width="16"
                   height="16"
                   fill="currentColor"
-                  class="bi bi-x-lg"
+                  className="bi bi-x-lg"
                   viewBox="0 0 16 16"
                 >
                   <path
@@ -79,9 +77,9 @@ const TodoList = ({ todos, removeTodo }) => {
               </span>
             </div>
           </div>
-          <div class="progress w-100 mb-3" style={{ height: "10px" }}>
+          <div className="progress w-100 mb-3" style={{ height: "10px" }}>
             <div
-              class="progress-bar bg-info"
+              className="progress-bar bg-info"
               role="progressbar"
               style={{ width: "100%", height: "10px" }}
               aria-valuenow="50"

@@ -4,8 +4,6 @@ const TodoListChild = ({
   completeTodoChild,
   removeTodoChild,
 }) => {
-  console.log("this is the todo");
-
   return todos.map(
     (todo, index) =>
       todoID === todo.id && (
@@ -40,7 +38,7 @@ const TodoListChild = ({
                 width="16"
                 height="16"
                 fill="currentColor"
-                class="bi bi-x-lg"
+                className="bi bi-x-lg"
                 viewBox="0 0 16 16"
               >
                 <path

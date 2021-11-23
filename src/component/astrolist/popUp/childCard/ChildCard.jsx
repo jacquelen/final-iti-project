@@ -1,5 +1,4 @@
 import { useState } from "react";
-import TodoList from "../todoList";
 const ChildCard = (props) => {
   const [childInput, setchildInput] = useState("");
   const handleCardSubmit = (e) => {
@@ -19,7 +18,7 @@ const ChildCard = (props) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-x-lg"
+              className="bi bi-x-lg"
               viewBox="0 0 16 16"
             >
               <path
@@ -38,7 +37,7 @@ const ChildCard = (props) => {
           <input
             type="text"
             placeholder="add item"
-            class="form-control"
+            className="form-control"
             value={childInput}
             onChange={(e) => setchildInput(e.target.value)}
           ></input>

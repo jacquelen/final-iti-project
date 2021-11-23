@@ -3,7 +3,6 @@ import {MdDeleteForever} from "react-icons/md"
 import "./not.css"
 
 function Note({id,text,date ,handledeleteNote ,notes }){
-    console.log(notes , "notes")
     return(
    <>
    <div className="note">

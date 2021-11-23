@@ -9,8 +9,10 @@ import { Features } from "../MSfeatures/features";
 import { Ourteam } from "../ourTeam/ourTeam";
 
 function Home() {
+  
   return (
     <>
+    
       <Header />
       <WhyUs />
       <Agile />

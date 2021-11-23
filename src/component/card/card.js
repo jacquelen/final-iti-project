@@ -1,4 +1,3 @@
-import { Paper } from "@mui/material";
 import { useContext, useState } from "react";
 import { Draggable } from "react-beautiful-dnd";
 import PopUp from "../astrolist/popUp/PopUp";
@@ -23,25 +22,19 @@ function Card({ card, index, id }) {
   };
   const handleOnChanges = (e) => {
     setNewtitle(e.target.value);
-    if(e.target.id==="1")
-    localStorage.setItem("firstCardTitle",e.target.value||newtitle)
-    if(e.target.id==="2")
-    localStorage.setItem("secondCardTitle",e.target.value||newtitle)
-    if(e.target.id==="3")
-    localStorage.setItem("thirdCardTitle",e.target.value||newtitle)
-    console.log(e.target);
+    const key = e.target.id;
+    localStorage.setItem(key,newtitle)
   };
 
-  const handleBlur = () => {
+  const handleBlur = (e) => {
     setOpen(false);
-    updatecardtitle(newtitle, id);
+    const newId = e.target.id
+    updatecardtitle(newtitle, id,newId);
   };
   const getdatevalue = (e) => {
     settaskdate(e.target.value);
     setdatetask(taskdate, id);
-    console.log(e.target.value, "datevalue");
-    console.log(card, "llllllllllllllllllllllll");
-  };
+   };
 
   return (
     <>
@@ -61,6 +54,7 @@ function Card({ card, index, id }) {
               >
                 <InputBase
                   onChange={handleOnChanges}
+                 
                   value={newtitle}
                   autoFocus
                   id={card.id}
@@ -139,7 +133,7 @@ function Card({ card, index, id }) {
                         width="16"
                         height="16"
                         fill="currentColor"
-                        class="bi bi-alarm"
+                        className="bi bi-alarm"
                         viewBox="0 0 16 16"
                       >
                         <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
@@ -167,7 +161,7 @@ function Card({ card, index, id }) {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-bookmark-heart-fill"
+                      className="bi bi-bookmark-heart-fill"
                       viewBox="0 0 16 16"
                     >
                       <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" />
@@ -192,7 +186,7 @@ function Card({ card, index, id }) {
                       width="16"
                       height="16"
                       fill="currentColor"
-                      class="bi bi-x-lg"
+                      className="bi bi-x-lg"
                       viewBox="0 0 16 16"
                     >
                       <path

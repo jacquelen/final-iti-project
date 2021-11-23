@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { unit } from "../uitilty/store";
 import { Dashboard } from "../dashboard/dashboard";
 import { v4 as uuid } from "uuid";
@@ -12,8 +12,11 @@ function Dashmain() {
     JSON.parse(localStorage.getItem("addCard")) || unit.data
   );
   const [cards, setCards] = useState(unit.cards);
+
+
+
+
   const addamorecard = (title, listId) => {
-    console.log(title, "title", listId, "id"); //1
     const d = new Date();
     const newCardid = uuid();
     const newCard = {
@@ -32,10 +35,6 @@ function Dashmain() {
     };
     setDate(newState);
     localStorage.setItem("addCard", JSON.stringify(newState));
-    console.log(
-      list,
-      "llllllllllllllllllllllllllllllllllllllllllllllllllllllllll"
-    );
   };
   const addMorelist = (title) => {
     const newlistId = uuid();
@@ -70,24 +69,10 @@ function Dashmain() {
     localStorage.setItem("addCard", JSON.stringify(newState));
   };
   // need mofification
-  const updatecardtitle = (title, listId) => {
+  const updatecardtitle = (title, listId,newId) => {
     const list = data.lists[listId];
-    console.log(list, "mmooooo",list.cards[0].id=="card-1");
     for(let i=0 ; i<list.cards.length;i++){
-        switch (list.cards[i].id) {
-            case "1":
-                list.cards[0].title =localStorage.getItem("firstCardTitle");
-                break;
-            case "2":
-                list.cards[1].title =localStorage.getItem("secondCardTitle");
-                break;
-            case "3":
-                list.cards[2].title =localStorage.getItem("thirdCardTitle");
-                break;
-        
-            default:  let x="";
-                break;
-        }
+        (list.cards[i].id === newId) ? list.cards[i].title = localStorage.getItem(newId) : console.log("shokrn gdn yasedy")
     }
     const newState = {
       ...data,
@@ -104,9 +89,6 @@ function Dashmain() {
     const list = data.lists[listId];
     //   list.cards.taskdate=date;
     list.cards.taskdate = date;
-    const d = list.cards.taskdate;
-
-    console.log(d, "taskkkkkkkkkkkkkkk");
     const newState = {
       ...data,
       lists: {
@@ -120,7 +102,6 @@ function Dashmain() {
 
   const onDragEnd = (result) => {
     const { destination, source, draggableId, type } = result;
-    // console.log(destination,"d",source,"s",draggableId,"id");
 
     if (!destination) {
       return;
@@ -197,8 +178,6 @@ function Dashmain() {
                 <div className="d-flex align-items-start">
                   {data.listIds.map((listId, index) => {
                     const list = data.lists[listId];
-                    console.log(list, "list//dash");
-                    console.log(data.lists[listId].cards, "index");
                     return <Dashboard list={list} key={listId} index={index} />;
                   })}
                   <div className="">

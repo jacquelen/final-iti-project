@@ -2,6 +2,9 @@ import { createContext, useContext, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, FirebaseContext } from "./FireContext";
+import "react-toastify/dist/inject-style";
+import "react-toastify/dist/ReactToastify.min.css";
+
 export const currentUserContext = createContext();
 const CurrentUserProvider = ({ children }) => {
   const {  usersCollection } = useContext(FirebaseContext);
@@ -19,6 +22,7 @@ const CurrentUserProvider = ({ children }) => {
     }
     // eslint-disable-next-line
   }, [currentUser]);
+  
   return (
     <currentUserContext.Provider value={{ userData }}>
       {children}

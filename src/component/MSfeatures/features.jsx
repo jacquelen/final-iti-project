@@ -12,8 +12,6 @@ import priority from "./assists/task-icon.svg";
 import viewboard from "./assists/activity-icon.svg";
 import checklist from "./assists/request-forms-icon.svg";
 import Fade from "react-reveal/Fade";
-import Zoom from "react-reveal/Zoom";
-
 import { Link } from "react-router-dom";
 function Features() {
   return (
@@ -22,7 +20,7 @@ function Features() {
         <Container>
           <Row>
             <Col>
-              <div class="team-header section__margin">
+              <div className="team-header section__margin">
                 <h3>Get More Granular</h3>
                 <p className="features-p">
                   Easily plan, collaborate, organize and deliver projects of all

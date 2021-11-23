@@ -1,39 +1,78 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./popup.css";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import { Box } from "@mui/system";
-import { Drawer, List } from "@mui/material";
+import { InputBase, List } from "@mui/material";
 import CheckListCard from "./CheckListCard";
 import { useState } from "react";
 import TodoList from "./todoList";
+import Comments from "./Comments";
 
 const PopUp = (props) => {
   const [showCard, setshowCard] = useState(false);
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todo"))||[]);
+  const [newtitle, setNewtitle] = useState("");
+  const [inputVal, setInputVal] = useState("");
+  const [newId, setNewId] = useState();
+  const [comments, setComments] = useState(
+    JSON.parse(localStorage.getItem("comments")) || []
+  );
+
+  const handleCommentsSubmit = (e) => {
+    console.log(inputVal);
+    e.preventDefault();
+    if (inputVal) {
+      comments.push({
+        id: Math.floor(Math.random() * 1000),
+        text: inputVal,
+        time: new Date().toLocaleTimeString([], {
+          hour: "2-digit",
+          minute: "2-digit",
+        }),
+      });
+    }
+    comments.map((comment) => {
+      localStorage.setItem("comments", JSON.stringify(comments));
+      console.log(comments);
+      setComments(JSON.parse(localStorage.getItem("comments")));
+      setNewId(comment.id);
+
+      return comment;
+    });
+
+    setInputVal("");
+  };
+  const commentRef = useRef("");
+  useEffect(() => {}, [comments]);
+
+  const removeComment = (id) => {
+    const removedArr = [...comments].filter((comment) => comment.id !== id);
+
+    setComments(removedArr);
+    localStorage.setItem("comments", JSON.stringify(removedArr));
+  };
+  const handleOnChanges = (e) => {
+    setNewtitle(e.target.value);
+    localStorage.setItem("inputDes", e.target.value);
+  };
+  const handleBlur = () => {
+    setNewtitle(newtitle);
+  };
 
   const addTodo = (todo) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
     const newTodos = [todo, ...todos];
+    localStorage.setItem("todo",JSON.stringify(newTodos)) 
     setTodos(newTodos);
-  };
-
-  // const completeTodo = (id) => {
-  //   let updatedTodos = todos.map((todo) => {
-  //     if (todo.id === id) {
-  //       todo.isComplete = !todo.isComplete;
-  //     }
-  //     return todo;
-  //   });
-  //   setTodos(updatedTodos);
-  // };
+ };
   const removeTodo = (id) => {
     const removedArr = [...todos].filter((todo) => todo.id !== id);
-
     setTodos(removedArr);
+    localStorage.setItem("todo",JSON.stringify(removedArr))
   };
   return props.trigger ? (
     <div className="pop-up shadow p-4">
@@ -93,7 +132,84 @@ const PopUp = (props) => {
             </div>
           </div>
           <div className="col-lg-7">
-            <TodoList todos={todos} removeTodo={removeTodo} />
+            <div className="mb-5">
+              <span className="me-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-list-ul"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                  />
+                </svg>
+              </span>
+              <span>Description</span>
+            </div>
+            <div className="w-100 border p-2 shadow-sm">
+              <InputBase
+                multiline
+                onChange={handleOnChanges}
+                value={localStorage.getItem("inputDes")}
+                autoFocus
+                onBlur={handleBlur}
+                placeholder="Add a more detailed description..."
+                style={{
+                  fontSize: "1rem",
+                  fontWeight: "normal",
+                  width: "100%",
+                  height: "5em",
+                  alignItems: "flex-start",
+                }}
+              />
+            </div>
+            <div className="mt-4">
+              <TodoList todos={todos} removeTodo={removeTodo} />
+            </div>
+
+            <div className="my-5">
+              <span className="me-3">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="25"
+                  height="25"
+                  fill="currentColor"
+                  class="bi bi-list-ul"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
+                  />
+                </svg>
+              </span>
+              <span>Activity</span>
+            </div>
+
+            <div>
+              <form onSubmit={handleCommentsSubmit}>
+                <input
+                  type="text"
+                  ref={commentRef}
+                  placeholder="Write a comment..."
+                  class="form-control"
+                  value={inputVal}
+                  onChange={(e) => setInputVal(e.target.value)}
+                ></input>
+                <button type="submit" class="btn btn-primary mt-3">
+                  Add
+                </button>
+              </form>
+            </div>
+            <Comments
+              comments={comments}
+              removeComment={removeComment}
+              newId={newId}
+            />
           </div>
         </div>
       </div>
