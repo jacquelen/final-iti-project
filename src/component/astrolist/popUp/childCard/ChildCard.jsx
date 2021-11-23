@@ -8,10 +8,10 @@ const ChildCard = (props) => {
     props.setTrigger(false);
   };
   return props.trigger && props.tdId === props.todoID ? (
-    <div className="checkListCard shadow p-4">
+    <div className="childCard shadow p-4">
       <div className="checkListCard-inner">
-        {/* {props.children} */}
         <div className="d-flex justify-content-between">
+        <h5>Add Item</h5>
           <span className="clear-icon" onClick={() => props.setTrigger(false)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
