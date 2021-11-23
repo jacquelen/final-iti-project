@@ -36,7 +36,7 @@ function App() {
         position: toast.POSITION.BOTTOM_LEFT,
         toastId: "welcome to Astro",
 
-      });
+      }); 
     },500000
   )
   return (
