@@ -5,22 +5,27 @@ const cards =[
         id:'1',
         title:'making tea',
         date:d.toLocaleString(),
-        taskdate:"",
+        taskdate:"mn ",
+        priority:"HIGH ",
+        typecard:"#FA8072 ",
        
     },
     {
         id:'2',
         title:'making milk',
         date:d.toLocaleString(),
-        taskdate:"",
-        
+        taskdate:" mn",
+        priority:"LOW ",
+        typecard:"#B0E0E6 ",        
 
     },
     {
         id:'3',
         title:'making water',
         date:d.toLocaleString(),
-        taskdate:"",
+        taskdate:"mn ",
+        priority:"HIGH ",
+        typecard:"#FA8072 ",
         
     },
 ]

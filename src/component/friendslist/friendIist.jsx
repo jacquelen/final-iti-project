@@ -8,6 +8,7 @@ const FriendList = () => {
   const { usersCollection } = useContext(FirebaseContext);
   const [users] = useCollectionData(usersCollection);
   const { userData } = useContext(currentUserContext);
+  console.log(usersCollection);
   return (
     <>
       {users

@@ -9,13 +9,14 @@ import CheckListCard from "./CheckListCard";
 import { useState } from "react";
 import TodoList from "./todoList";
 import Comments from "./Comments";
-
+import { Taskdetail } from "./taskdetail";
 const PopUp = (props) => {
   const [showCard, setshowCard] = useState(false);
   const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todo"))||[]);
   const [newtitle, setNewtitle] = useState("");
   const [inputVal, setInputVal] = useState("");
   const [newId, setNewId] = useState();
+  const [taskdetails, settaskdetails] = useState(false);
   const [comments, setComments] = useState(
     JSON.parse(localStorage.getItem("comments")) || []
   );
@@ -104,7 +105,10 @@ const PopUp = (props) => {
                       </ListItemIcon>
                       <ListItemText primary="Checklist" />
                     </ListItem>
-                    <ListItem button>
+                    <ListItem 
+                    button
+                    onClick={() => settaskdetails(true)}
+                    >
                       <ListItemIcon>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -117,7 +121,7 @@ const PopUp = (props) => {
                           <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                         </svg>
                       </ListItemIcon>
-                      <ListItemText primary="text" />
+                      <ListItemText primary="task detail" />
                     </ListItem>
                   </>
                 }
@@ -212,6 +216,16 @@ const PopUp = (props) => {
             />
           </div>
         </div>
+        <div>
+          <Taskdetail
+          triggers={taskdetails}
+          setTriggers={settaskdetails}
+          taskdate={props.taskdate}
+          recentdate={props.recentdate}
+          card={props.card}
+          typecard={props.typecard}
+          />
+          </div>
       </div>
     </div>
   ) : (

@@ -5,26 +5,25 @@ import { v4 as uuid } from "uuid";
 import StoreApi from "../uitilty/storeApi";
 import { Inputcontainer } from "../inputcontainer/inputcontainer";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
-import { Card } from "@mui/material";
 
 function Dashmain() {
   const [data, setDate] = useState(
     JSON.parse(localStorage.getItem("addCard")) || unit.data
   );
-  const [cards, setCards] = useState(unit.cards);
-
-
-
-
   const addamorecard = (title, listId) => {
     const d = new Date();
     const newCardid = uuid();
-    const newCard = {
-      id: newCardid,
-      title: title,
-      date: d.toLocaleString(),
-    };
-    const list = data.lists[listId];
+    const newCard={
+      id:newCardid,
+      title:title,
+      date:d.toLocaleString(),
+      taskdate:" ",
+      priority:" ",
+      type:" ",
+      srtday:d.getDate(),
+      endday:""
+  }
+const list = data.lists[listId];
     list.cards = [...list.cards, newCard];
     const newState = {
       ...data,

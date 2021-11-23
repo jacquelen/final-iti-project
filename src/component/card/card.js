@@ -5,7 +5,7 @@ import { Drawer } from "@mui/material";
 import { InputBase, Typography } from "@mui/material";
 import storeApi from "../uitilty/storeApi";
 
-function Card({ card, index, id }) {
+function Card({ card, index, id,tablecard }) {
   const [open, setOpen] = useState(false);
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
@@ -32,9 +32,11 @@ function Card({ card, index, id }) {
     updatecardtitle(newtitle, id,newId);
   };
   const getdatevalue = (e) => {
-    settaskdate(e.target.value);
-    setdatetask(taskdate, id);
-   };
+    card.taskdate=e.target.value
+    const d= new Date(e.target.value)
+    const f =d.getDate()
+    card.endday=f ;    
+  };
 
   return (
     <>
@@ -113,6 +115,24 @@ function Card({ card, index, id }) {
                   </div>
                   {/*  */}
                   <p
+                style={{
+                  textAlign:"center",
+                  fontSize:"0.7em",
+                  backgroundColor:card.typecard,
+                  padding:"0.1em",
+                  fontWeight: "lighter",
+                  marginBottom: "-0.01em",
+                  marginLeft:"18.25em",
+                  width: "7em",
+                  borderRadius: "0.3em",
+                }}
+                >
+
+                {card.priority}
+                </p>
+
+                  {/*  */}
+                  <p
                     style={{
                       fontWeight: "lighter",
                       fontSize: "0.85rem",
@@ -177,7 +197,8 @@ function Card({ card, index, id }) {
               open={popupClose}
               onClose={() => setpopupClose(false)}
             >
-              <PopUp trigger={buttonPopup} setTrigger={setbuttonPopup}>
+              <PopUp trigger={buttonPopup} setTrigger={setbuttonPopup} taskdate={card.taskdate} recentdate={card.date} 
+              card={card}   typecard={card.type}>
                 <div className="d-flex justify-content-between">
                   <h3>{card.title} </h3>
                   <span className="clear-icon" onClick={handleClosePopUP}>

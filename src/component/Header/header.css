@@ -40,7 +40,7 @@ h1 {
   transition: 0.8s;
 }
 .btn-hover:hover {
-  color: white;
+  color: white !important;
 }
 .btn-hover:hover::before {
   height: 100%;
