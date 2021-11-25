@@ -4,7 +4,11 @@ import TodoListChild from "./childCard/todoListChild";
 
 const TodoList = ({ todos, removeTodo }) => {
   const [showChild, setshowChild] = useState(false);
-  const [todosChild, settodosChild] = useState(JSON.parse(localStorage.getItem("todosss"))||[]);
+
+  const [width, setWidth] = useState(0);
+  const [todosChild, settodosChild] = useState(
+    JSON.parse(localStorage.getItem("todosss")) || []
+  );
   const [tdId, setTdId] = useState();
 
   const addTodoChild = (todo) => {
@@ -13,26 +17,44 @@ const TodoList = ({ todos, removeTodo }) => {
     }
     const newTodos = [todo, ...todosChild];
     settodosChild(newTodos);
-    localStorage.setItem("todosss",JSON.stringify(newTodos)) 
+    localStorage.setItem("todosss", JSON.stringify(newTodos));
   };
   const completeTodoChild = (resIndex) => {
     let updatedTodos = todosChild.map((todo, index) => {
       if (index === resIndex) {
         todo.isComplete = !todo.isComplete;
+        // bug
+        const completed =JSON.stringify(todosChild).match(/true/g);
+        console.log("1111111");
+        if (completed) {
+          setWidth((completed.length / todosChild.length) * 100);
+          console.log("2222222");
+        } else {
+          setWidth(0);
+          console.log("33333");
+        }
       }
+      console.log("4444");
       return todo;
     });
-    localStorage.setItem("todosss",JSON.stringify(updatedTodos)) 
+
+    localStorage.setItem("todosss", JSON.stringify(updatedTodos));
     settodosChild(updatedTodos);
   };
+
   const removeTodoChild = (resIndex) => {
-    const removedArr = [...todosChild].filter(
-      (todo, index) => resIndex !== index
-    );
+    const removedArr = [...todosChild].filter((todo, index, arr) => {
+      const completed = localStorage.getItem("todosss").match(/true/g);
+      if (completed) {
+        setWidth((completed.length / arr.length) * 100);
+      } else {
+        setWidth(0);
+      }
+      return resIndex !== index;
+    });
 
     settodosChild(removedArr);
-    localStorage.setItem("todosss",JSON.stringify(removedArr)) 
-
+    localStorage.setItem("todosss", JSON.stringify(removedArr));
   };
   return todos.map((todo, index) => (
     <div key={index}>
@@ -77,11 +99,12 @@ const TodoList = ({ todos, removeTodo }) => {
               </span>
             </div>
           </div>
+          <span>{width} %</span>
           <div className="progress w-100 mb-3" style={{ height: "10px" }}>
             <div
               className="progress-bar bg-info"
               role="progressbar"
-              style={{ width: "100%", height: "10px" }}
+              style={{ width: `${width}%`, height: "10px" }}
               aria-valuenow="50"
               aria-valuemin="0"
               aria-valuemax="100"
@@ -96,7 +119,6 @@ const TodoList = ({ todos, removeTodo }) => {
               removeTodoChild={removeTodoChild}
             />
           </div>
-
         </div>
 
         <div className="d-flex justify-content-between">

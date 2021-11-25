@@ -27,9 +27,7 @@ function SignIn() {
     const provider = new firebase.auth.GoogleAuthProvider();
     auth
       .signInWithPopup(provider)
-      .then((data) =>
-        data ? history.push("/Entrypage") : console.log(data)
-      )
+      .then((data) => (data ? history.push("/Entrypage") : console.log(data)))
       .catch((err) => console.log(err));
   };
   const [users] = useCollectionData(usersCollection, { idField: "id" });
@@ -81,6 +79,9 @@ function SignIn() {
 
               {/* <!-- Email input --> */}
               <div className="form-outline mb-4">
+                <label className="form-label" htmlFor="form3Example3">
+                  Email address
+                </label>
                 <input
                   type="email"
                   id="form3Example3"
@@ -88,13 +89,13 @@ function SignIn() {
                   placeholder="Enter a valid email address"
                   ref={emailRef}
                 />
-                <label className="form-label" htmlFor="form3Example3">
-                  Email address
-                </label>
               </div>
 
               {/* <!-- Password input --> */}
               <div className="form-outline mb-3">
+                <label className="form-label" htmlFor="form3Example4">
+                  Password
+                </label>
                 <input
                   type="password"
                   id="form3Example4"
@@ -102,9 +103,6 @@ function SignIn() {
                   placeholder="Enter password"
                   ref={passwordRef}
                 />
-                <label className="form-label" htmlFor="form3Example4">
-                  Password
-                </label>
               </div>
 
               <div className="d-flex justify-content-between align-items-center">
@@ -134,7 +132,7 @@ function SignIn() {
                 >
                   Login
                 </button>
-                <p className="small fw-bold mt-2 pt-1 mb-0">
+                <p className="small fw-bold mt-2 pt-1 mb-4">
                   Don't have an account?
                   <Link to="/SignUp" className="link-danger">
                     Register
@@ -147,7 +145,6 @@ function SignIn() {
       </div>
       <i className="fab fa-500px"></i>
     </section>
-
   );
 }
 

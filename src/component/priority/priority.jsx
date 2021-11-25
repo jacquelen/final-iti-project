@@ -1,7 +1,6 @@
 /* eslint-disable react/style-prop-object */
 import Lottie from "reactjs-lottie";
 import pro from "./assests/pro.json";
-import s from "./assests/s.json";
 import power from "./assests/power.json";
 import ppp from "./assests/ppp.json";
 import sign from "./assests/sign.json";

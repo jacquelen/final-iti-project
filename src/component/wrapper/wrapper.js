@@ -13,7 +13,6 @@ useLayoutEffect(() => {
         backgroundImage: `url(${backgroundImage})`,
         backgroundColor: backgroundImage,
         backgroundRepeat: "no-repeat",
-        background: "linear-gradient(rgba(12,50,60,0.2))",
         backgroundSize: "cover",
       }}
     >

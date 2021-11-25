@@ -1,4 +1,4 @@
-import { Divider, Drawer, Grow } from '@mui/material'
+import { Drawer, Grow } from '@mui/material'
 import React, { useState }  from 'react'
 import { colors } from '../uitilty/color'
 import { images } from '../uitilty/images'

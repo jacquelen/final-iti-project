@@ -13,6 +13,7 @@ const Comments = ({ comments, removeComment, time }) => {
   var z;
   currentUser ? (x = currentUser[0]?.photoURL) : console.log(false);
   currentUser ? (z = currentUser[0]?.displayName) : console.log(false);
+
   return comments.map((comment, index) => (
     <>
       <div key={index}>
@@ -29,7 +30,13 @@ const Comments = ({ comments, removeComment, time }) => {
           <div className="col-4 text-end  text-muted">{comment.time}</div>
         </div>
         <div className="my-3 ps-2 d-flex justify-content-between shadow-sm border rounded">
-          <div key={comment.id}>{comment.text}</div>
+          <div key={comment.id}>
+            <span style={{ color: "#008ad3" }}>
+              {comment.text.match(/@\w+/g)}
+            </span>
+
+            <span> {comment.text.replace(/@\w+/g, "")} </span>
+          </div>
           <span
             className="clear-icon"
             onClick={() => removeComment(comment.id)}
@@ -43,11 +50,11 @@ const Comments = ({ comments, removeComment, time }) => {
               viewBox="0 0 16 16"
             >
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
               />
               <path
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
               />
             </svg>

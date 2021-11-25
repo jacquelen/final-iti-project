@@ -3,7 +3,7 @@ import { Asrtolist } from '../astrolist/astrolist'
 import {Card} from "../card/card"
 import { Inputcontainer } from '../inputcontainer/inputcontainer'
 import "./dashbroad.css"
-import {CssBaseline, Paper,Typography} from "@mui/material"
+import {CssBaseline, Paper} from "@mui/material"
 import { Draggable, Droppable } from 'react-beautiful-dnd'
 
 

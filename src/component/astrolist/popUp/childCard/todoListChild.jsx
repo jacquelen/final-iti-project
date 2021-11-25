@@ -4,6 +4,7 @@ const TodoListChild = ({
   completeTodoChild,
   removeTodoChild,
 }) => {
+  
   return todos.map(
     (todo, index) =>
       todoID === todo.id && (
@@ -16,6 +17,7 @@ const TodoListChild = ({
                 onChange={() => {
                   completeTodoChild(index);
                 }}
+                checked={todo.isComplete ? true : null}
               />
               <p
                 className={

@@ -9,7 +9,6 @@ import { Kanbanboard } from "./component/kanbanboard/kanban";
 import { Priority } from "./component/priority/priority";
 import { Notification } from "./component/notifiaction/notifiaction";
 import { Bookmarks } from "./component/bookmarks/bookmarks";
-import { Collaborate } from "./component/colllaborate/collaborate";
 import { Quicknotepad } from "./component/quicknotepad/quicknotepad";
 import { Chat } from "./component/chat/chat";
 import { Viewboard } from "./component/viewboard/viewboard";
@@ -27,6 +26,7 @@ import { ToastContainer } from 'react-toastify';
 import { toast } from "react-toastify";
 import "react-toastify/dist/inject-style";
 import "react-toastify/dist/ReactToastify.min.css";
+import Mention from "./component/astrolist/popUp/mention";
 
 function App() {
   setInterval( () => {
@@ -54,7 +54,7 @@ function App() {
             <Route component={Priority} path="/priority" />
             <Route component={Notification} path="/Notification" />
             <Route component={Bookmarks} path="/bookmarks" />
-            <Route component={Collaborate} path="/Collaborate" />
+            <Route component={Mention} path="/Mention" />
             <Route component={Quicknotepad} path="/quicknotepad" />
             <Route component={Chat} path="/Chat" />
             <Route component={Viewboard} path="/viewboard" />

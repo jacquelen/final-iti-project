@@ -15,7 +15,7 @@ import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 function Features() {
   return (
-    <>
+    <section id="features">
       <Fade top>
         <Container>
           <Row>
@@ -138,9 +138,8 @@ function Features() {
                     </Row>
                     {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
                     <Card.Text className="text-card">
-                      Favorites can greatly increase the speed at which you
-                      navigate Astro! You can think of them as bookmarks to the
-                      views you use and like the most.
+                      Add your top level company goals to help teams prioritize
+                      and connect work to your organization’s objectives
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -150,7 +149,7 @@ function Features() {
           {/* 2 */}
           <Col sm={12} md={4} lg={4}>
             <Fade bottom>
-              <Link to={"/wrapper"} className="link-card">
+              <Link to={"/Mention"} className="link-card">
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">
                     <Row className="justify-content-center align-items-center icon-row">
@@ -159,13 +158,14 @@ function Features() {
                       </Col>
 
                       <Col xs={6} className="col-p">
-                        <Card.Title className="p-card"> Collaborate</Card.Title>
+                        <Card.Title className="p-card"> Mention</Card.Title>
                       </Col>
                     </Row>
                     {/* <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle> */}
                     <Card.Text className="text-card">
-                      Assign your tasks and subtasks to your team members and
-                      get notifications of your tasks and subtasks
+                      @Mention anyone you want to loop them in discussions
+                      having more than one person, address them or grab their
+                      attention any time you want.
                     </Card.Text>
                   </Card.Body>
                 </Card>
@@ -284,7 +284,7 @@ function Features() {
           </Col>
         </Row>
       </Container>
-    </>
+    </section>
   );
 }
 export { Features };

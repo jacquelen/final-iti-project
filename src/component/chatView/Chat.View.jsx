@@ -3,7 +3,6 @@ import ChatContent from "../Chatbody/ChatContent";
 import ChatFooter from "../Chatbody/ChatIFooter";
 import ChatTitle from "../Chatbody/ChatTitle";
 import FriendList from "../friendslist/friendIist";
-import { FirebaseContext } from "../context/FireContext";
 import { SecondUserContext } from "../context/secondUser";
 import { currentUserContext } from "../context/CurrentUser";
 import { useHistory } from "react-router-dom";
@@ -12,7 +11,6 @@ import Lottie from "reactjs-lottie";
 
 import "./chatView.css";
 const ChatView = () => {
-  const { auth } = useContext(FirebaseContext);
   const { secondUserData } = useContext(SecondUserContext);
   const history = useHistory();
   const { userData } = useContext(currentUserContext);

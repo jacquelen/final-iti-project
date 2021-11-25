@@ -90,11 +90,17 @@
     width: 30%;
   }
 }
-.hidden{
+.hidden {
   display: none !important;
 }
-.width{
-  width: 2rem ;
-  height: 2rem ;
+.width {
+  width: 2rem;
+  height: 2rem;
   border-radius: 50%;
+}
+.chat:hover:after {
+  width: 0;
+}
+.pointer {
+  cursor: pointer;
 }

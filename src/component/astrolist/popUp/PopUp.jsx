@@ -10,12 +10,18 @@ import { useState } from "react";
 import TodoList from "./todoList";
 import Comments from "./Comments";
 import { Taskdetail } from "./taskdetail";
+import Mention from "./mention";
+
 const PopUp = (props) => {
   const [showCard, setshowCard] = useState(false);
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem("todo"))||[]);
+  const [showMentionList, setshowMentionList] = useState(false);
+  const [todos, setTodos] = useState(
+    JSON.parse(localStorage.getItem("todo")) || []
+  );
   const [newtitle, setNewtitle] = useState("");
   const [inputVal, setInputVal] = useState("");
   const [newId, setNewId] = useState();
+  const [user, setUser] = useState("");
   const [taskdetails, settaskdetails] = useState(false);
   const [comments, setComments] = useState(
     JSON.parse(localStorage.getItem("comments")) || []
@@ -28,6 +34,7 @@ const PopUp = (props) => {
       comments.push({
         id: Math.floor(Math.random() * 1000),
         text: inputVal,
+        mention: user,
         time: new Date().toLocaleTimeString([], {
           hour: "2-digit",
           minute: "2-digit",
@@ -44,6 +51,7 @@ const PopUp = (props) => {
     });
 
     setInputVal("");
+    setUser("");
   };
   const commentRef = useRef("");
   useEffect(() => {}, [comments]);
@@ -67,13 +75,13 @@ const PopUp = (props) => {
       return;
     }
     const newTodos = [todo, ...todos];
-    localStorage.setItem("todo",JSON.stringify(newTodos)) 
+    localStorage.setItem("todo", JSON.stringify(newTodos));
     setTodos(newTodos);
- };
+  };
   const removeTodo = (id) => {
     const removedArr = [...todos].filter((todo) => todo.id !== id);
     setTodos(removedArr);
-    localStorage.setItem("todo",JSON.stringify(removedArr))
+    localStorage.setItem("todo", JSON.stringify(removedArr));
   };
   return props.trigger ? (
     <div className="pop-up shadow p-4">
@@ -105,10 +113,7 @@ const PopUp = (props) => {
                       </ListItemIcon>
                       <ListItemText primary="Checklist" />
                     </ListItem>
-                    <ListItem 
-                    button
-                    onClick={() => settaskdetails(true)}
-                    >
+                    <ListItem button onClick={() => settaskdetails(true)}>
                       <ListItemIcon>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -147,7 +152,7 @@ const PopUp = (props) => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
                   />
                 </svg>
@@ -186,7 +191,7 @@ const PopUp = (props) => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"
                   />
                 </svg>
@@ -202,8 +207,23 @@ const PopUp = (props) => {
                   placeholder="Write a comment..."
                   class="form-control"
                   value={inputVal}
-                  onChange={(e) => setInputVal(e.target.value)}
-                ></input>
+                  onChange={(e) => {
+                    setInputVal(e.target.value);
+                    if (e.target.value === "@") {
+                      setshowMentionList(true);
+                    } else {
+                      setshowMentionList(false);
+                    }
+                  }}
+                />
+
+                <Mention
+                  trigger={showMentionList}
+                  setTrigger={setshowMentionList}
+                  setInputVal={setInputVal}
+                  setUser={setUser}
+                  user={user}
+                />
                 <button type="submit" class="btn btn-primary mt-3">
                   Add
                 </button>
@@ -218,14 +238,14 @@ const PopUp = (props) => {
         </div>
         <div>
           <Taskdetail
-          triggers={taskdetails}
-          setTriggers={settaskdetails}
-          taskdate={props.taskdate}
-          recentdate={props.recentdate}
-          card={props.card}
-          typecard={props.typecard}
+            triggers={taskdetails}
+            setTriggers={settaskdetails}
+            taskdate={props.taskdate}
+            recentdate={props.recentdate}
+            card={props.card}
+            typecard={props.typecard}
           />
-          </div>
+        </div>
       </div>
     </div>
   ) : (
