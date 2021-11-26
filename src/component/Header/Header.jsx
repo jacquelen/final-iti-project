@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.css";
 import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
+import video from "./produc.mp4";
+import { IframVideo } from "./IframVideo";
 
 function Header() {
+  const [handelVideo, sethandelVideo] = useState(false);
+  const playVideo = () => {
+    sethandelVideo(true);
+  };
+  const closeVid = () => {
+    sethandelVideo(false);
+  };
   return (
     <>
       <header>
@@ -26,9 +35,15 @@ function Header() {
                   <button
                     type="button"
                     className="btn shadow bg-white text-color me-4 btn-hover"
+                    onClick={playVideo}
                   >
                     Watch Video
                   </button>
+                  {handelVideo ?
+                  (
+                    <> <IframVideo className="videoo"/> 
+                  <button onClick={closeVid}>x</button>
+                  </>) : ""}
                   <button type="button" className="btn shadow btn2-hover">
                     <Link
                       className="btn-link text-decoration-none "

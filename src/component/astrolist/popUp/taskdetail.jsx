@@ -9,8 +9,8 @@ import Select from '@mui/material/Select';
 function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard}){
     const [value, onChange] = useState(new Date());
     const [priority, setpriority]=useState("")
-    // 
-    const handleChange = (event) => {
+    // periority-----------------> local storage
+    const handleChange = (event) => { 
         setpriority(event.target.value);
         card.priority=event.target.value
         card.typecard=event.target.value
@@ -55,6 +55,7 @@ function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard}){
          {/* 008bbf */}
          <p className="fw-light" style={{width:"fit-content",
          padding:"0.5em", borderRadius:"1em",
+        //  dare function------------------->locale Sstorage
           backgroundColor:"#5c7a78",color:"white"}}> {(card.endday - card.srtday) < 0 ? "Enter corrcet date for this task":`you have only ${card.endday- card.srtday} days to complete this task`   }    </p>
          {/*  */}
          <div className="mt-5">

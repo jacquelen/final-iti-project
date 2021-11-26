@@ -27,6 +27,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/inject-style";
 import "react-toastify/dist/ReactToastify.min.css";
 import Mention from "./component/astrolist/popUp/mention";
+import { Tableboard } from "./component/tableboard/tableboard";
 
 function App() {
   setInterval( () => {
@@ -66,6 +67,7 @@ function App() {
             <Route component={GoalsPage} path="/GoalsPage" />
             <Route component={Goals} path="/Goals" />
             <Route component={QuicknotepadBoard} path="/QuicknotepadBoard" />
+            <Route component={Tableboard} path="/Tableboard" />
 
           </Switch> 
           <Footer />

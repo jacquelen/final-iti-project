@@ -30,6 +30,7 @@ function Card({ card, index, id,tablecard }) {
     const newId = e.target.id
     updatecardtitle(newtitle, id,newId);
   };
+  // date input---------------->
   const getdatevalue = (e) => {
     localStorage.setItem(`${card.id}`,e.target.value)
     card.taskdate=e.target.value

@@ -5,6 +5,8 @@ import { v4 as uuid } from "uuid";
 import StoreApi from "../uitilty/storeApi";
 import { Inputcontainer } from "../inputcontainer/inputcontainer";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
+import { Link } from "react-router-dom";
+import Button from "@restart/ui/esm/Button";
 
 function Dashmain() {
   const [data, setDate] = useState(
@@ -183,6 +185,27 @@ const list = data.lists[listId];
                     <Inputcontainer type="list" />
                     {provided.placeholder}
                   </div>
+                  <Link to={{ pathname:"/Tableboard", state: data}}  >
+           <Button className="table-position"
+            style={{background:"None"
+            ,border:"transparent",
+            borderBottom:"2px solid #fff",
+            borderLeft:"2px solid #fff",
+            color:"#fff",
+            backgroundColor:"#c5d4d6",
+            padding:"0.5em",
+            borderRadius:"0.5em",
+            position: "absolute",
+            top: "4.78em",
+            right:"14em" ,
+        
+        }}
+
+               >
+               Table aboard
+            </Button>
+              </Link>
+
                 </div>
                 {/* </div> */}
               </div>
