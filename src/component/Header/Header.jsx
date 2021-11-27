@@ -24,7 +24,7 @@ function Header() {
                   Work on big ideas , <br />
                   Without the busywork
                 </h1>
-                <p className="text-color my-4">
+                <p className="text-color-header my-4">
                   Project management software shouldn’t be hard Plan your team’s
                   work, know who’s working on what , and deliver results
                   intuitively with minimal tracking
@@ -34,16 +34,20 @@ function Header() {
                 <div className="btns mt-5">
                   <button
                     type="button"
-                    className="btn shadow bg-white text-color me-4 btn-hover"
+                    className="btn shadow bg-white text-color-header me-4 btn-hover"
                     onClick={playVideo}
                   >
                     Watch Video
                   </button>
-                  {handelVideo ?
-                  (
-                    <> <IframVideo className="videoo"/> 
-                  <button onClick={closeVid}>x</button>
-                  </>) : ""}
+                  {handelVideo ? (
+                    <>
+                      {" "}
+                      <IframVideo className="videoo" />
+                      <button onClick={closeVid}>x</button>
+                    </>
+                  ) : (
+                    ""
+                  )}
                   <button type="button" className="btn shadow btn2-hover">
                     <Link
                       className="btn-link text-decoration-none "

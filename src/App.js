@@ -8,7 +8,6 @@ import SignUp from "./component/signUp/SignUp";
 import { Kanbanboard } from "./component/kanbanboard/kanban";
 import { Priority } from "./component/priority/priority";
 import { Notification } from "./component/notifiaction/notifiaction";
-import { Bookmarks } from "./component/bookmarks/bookmarks";
 import { Quicknotepad } from "./component/quicknotepad/quicknotepad";
 import { Chat } from "./component/chat/chat";
 import { Viewboard } from "./component/viewboard/viewboard";
@@ -26,26 +25,26 @@ import { ToastContainer } from 'react-toastify';
 import { toast } from "react-toastify";
 import "react-toastify/dist/inject-style";
 import "react-toastify/dist/ReactToastify.min.css";
-import Mention from "./component/astrolist/popUp/mention";
+import { Mention } from "./component/MentionPage/Mention";
 import { Tableboard } from "./component/tableboard/tableboard";
 
 function App() {
-  setInterval( () => {
-      toast.info("your teammate add comment", {
-        className: "custom-toast",
-        draggable: true,
-        position: toast.POSITION.BOTTOM_LEFT,
-        toastId: "welcome to Astro",
+  setInterval(() => {
+    toast.info("your teammate add comment", {
+      className: "custom-toast",
+      draggable: true,
+      position: toast.POSITION.BOTTOM_LEFT,
+      toastId: "welcome to Astro",
 
-      }); 
-    },500000
+    });
+  }, 500000
   )
   return (
     <>
       <Router>
         <div className="overflow-hidden">
           <NavbarCom />
-<ToastContainer />
+          <ToastContainer />
           <Switch>
             <Route component={Home} path="/" exact />
             <Route component={SignIn} path="/signIn" />
@@ -54,7 +53,6 @@ function App() {
             <Route component={Kanbanboard} path="/kanbanboard" />
             <Route component={Priority} path="/priority" />
             <Route component={Notification} path="/Notification" />
-            <Route component={Bookmarks} path="/bookmarks" />
             <Route component={Mention} path="/Mention" />
             <Route component={Quicknotepad} path="/quicknotepad" />
             <Route component={Chat} path="/Chat" />
@@ -69,7 +67,7 @@ function App() {
             <Route component={QuicknotepadBoard} path="/QuicknotepadBoard" />
             <Route component={Tableboard} path="/Tableboard" />
 
-          </Switch> 
+          </Switch>
           <Footer />
         </div>
       </Router>

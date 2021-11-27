@@ -7,7 +7,9 @@ const PeopleSay = () => {
     <section className="container people_say py-5">
       <Fade top>
         <div className=" text-center tool py-5 ">
-          <h2 className="position-relative pb-3">WHAT PEOPLE SAY </h2>
+          <h2 className="position-relative pb-3 header-color">
+            WHAT PEOPLE SAY{" "}
+          </h2>
         </div>
       </Fade>
 
@@ -18,9 +20,9 @@ const PeopleSay = () => {
               <img src="../../assets/team-2.jpg" className="w-75" alt="" />
             </figure>
             <div className="col-9">
-              <h6 className="mb-0">PHIL SMITH,</h6>
+              <h6 className="mb-0 header-color">PHIL SMITH,</h6>
               <small>PROJECT ANALYST, XTRAC</small>
-              <p>
+              <p className="text-color-gray">
                 It was taking my boss a full day to prepare for some meetings
                 Thanks to Astro now it is done in minutes and more easy.
               </p>
@@ -34,9 +36,9 @@ const PeopleSay = () => {
               <img src="../../assets/team-1.jpg" className="w-75" alt="" />
             </figure>
             <div className="col-9">
-              <h6 className="mb-0">Jamie Chappell,</h6>
+              <h6 className="mb-0 header-color">Jamie Chappell,</h6>
               <small>Creative Director</small>
-              <p>
+              <p className="text-color-gray">
                 With Astro, we save an estimated 50 hours per week that used to
                 be spent answering email and attending check-in meetings.
               </p>
@@ -50,9 +52,9 @@ const PeopleSay = () => {
               <img src="../../assets/team-4.jpg" className="w-75" alt="" />
             </figure>
             <div className="col-9">
-              <h6 className="mb-0">Kyler Rose,</h6>
+              <h6 className="mb-0 header-color">Kyler Rose,</h6>
               <small>Marketing Services Manager</small>
-              <p>
+              <p className="text-color-gray">
                 Thanks to Astro I can interact with engineers directly and
                 establish working relationships, and that collaboration has been
                 extremely valuable

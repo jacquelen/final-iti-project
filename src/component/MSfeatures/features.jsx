@@ -5,7 +5,7 @@ import "./features.css";
 import table from "./assists/kanban-icon.svg";
 import notification from "./assists/app-notification-icon.svg";
 import chat from "./assists/discussion-icon.svg";
-import collaborate from "./assists/white-label-icon.svg";
+import collaborate from "./assists/mentions-icon.svg";
 import notepade from "./assists/notes-icon.svg";
 import goals from "./assists/goals.png";
 import priority from "./assists/task-icon.svg";
@@ -47,7 +47,6 @@ function Features() {
 
                       <Col xs={6} className="col-p">
                         <Card.Title className="p-card">
-                          {" "}
                           Kanban Boards
                         </Card.Title>
                       </Col>
@@ -233,7 +232,7 @@ function Features() {
           {/* 2 */}
           <Col sm={12} md={4} lg={4}>
             <Fade bottom>
-              <Link to={"/Entrypage"} className="link-card">
+              <Link to={"/Viewboard"} className="link-card">
                 {/* <Link to={"/viewboard"} className="link-card"> */}
                 <Card className="feature-card">
                   <Card.Body className="p-2 body-card">

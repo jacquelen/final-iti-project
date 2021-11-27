@@ -6,7 +6,8 @@
 }
 .people_card small {
   font-weight: 700;
-  font-size: xx-small;
+  font-size: x-small;
+  color: #ff3e49;
 }
 .people_card p {
   font-weight: 400;
@@ -16,6 +17,14 @@
   border-radius: 50%;
   width: 7rem;
   height: 6rem;
+}
+.text-color-gray {
+  color: #72868a;
+}
+.header-color {
+  color: #02385acc;
+  font-style: italic;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 768px) {

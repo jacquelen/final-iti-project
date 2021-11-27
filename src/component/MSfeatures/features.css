@@ -31,9 +31,9 @@
   text-align: center;
 }
 .team-header h3 {
-  font-weight: 500;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   color: rgba(2, 56, 90, 0.8);
+  font-style: italic;
+  font-weight: 500;
 }
 .team-header h3:after {
   content: "";
@@ -59,7 +59,6 @@
   padding: 0.1em;
 }
 .p-card {
-  /* font-size: 0.8rem; */
   color: rgb(7, 110, 170);
 
   margin: 0;
@@ -79,13 +78,14 @@
   width: 85%;
   margin: 1em auto;
   word-wrap: break-word;
-  color: rgba(71, 71, 71, 0.75);
+  color: #02385acc;
   line-height: 1rem;
   text-align: center;
 }
 .features-p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   width: 55vw;
   min-height: 1.5;
   margin: auto;
+  color: #72868a;
 }

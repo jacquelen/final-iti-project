@@ -7,8 +7,8 @@ export const Agile = () => {
       <div className="row align-items-center justify-content-between">
         <Fade left>
           <div className="col-12 col-xl-6 py-4 py-xl-0 text-center text-xl-start">
-            <h3>POWER YOUR FAST, AGILE BUSSNIS</h3>
-            <p className="pt-2 pt-xl-5">
+            <h3 className="header-color">POWER YOUR FAST, AGILE BUSINESS</h3>
+            <p className="pt-2 pt-xl-5 text-color-gray">
               From Strategy to planning to execution, Clarizen provides
               configurable enterprise solution that support your entire work
               lifecycle

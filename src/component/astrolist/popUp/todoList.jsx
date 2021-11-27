@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {useState } from "react";
 import ChildCard from "./childCard/ChildCard";
 import TodoListChild from "./childCard/todoListChild";
 
@@ -24,7 +24,7 @@ const TodoList = ({ todos, removeTodo }) => {
       if (index === resIndex) {
         todo.isComplete = !todo.isComplete;
         // bug
-        const completed =JSON.stringify(todosChild).match(/true/g);
+        const completed = JSON.stringify(todosChild).match(/true/g);
         console.log("1111111");
         if (completed) {
           setWidth((completed.length / todosChild.length) * 100);
@@ -88,11 +88,11 @@ const TodoList = ({ todos, removeTodo }) => {
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
                   />
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
                   />
                 </svg>

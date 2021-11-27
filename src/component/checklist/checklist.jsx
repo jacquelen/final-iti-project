@@ -7,7 +7,7 @@ import Lottie from "reactjs-lottie";
 function Checklist() {
   return (
     <>
-      <section className="checkList my-5">
+      <section className="checkList mb-5">
         <div className="container">
           <div className="row align-items-center">
             <div className="col-lg-6">

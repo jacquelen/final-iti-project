@@ -12,7 +12,11 @@ header {
 h1 {
   color: #013e5a !important;
 }
-.text-color {
+h1 {
+  font-weight: 700;
+  font-style: italic;
+}
+.text-color-header {
   color: #72868a;
 }
 .brink-pink {
@@ -72,7 +76,7 @@ h1 {
 }
 @media only screen and(min-width: 768px) {
 }
-.videoo{
+.videoo {
   width: 100%;
   height: 100%;
   position: absolute;

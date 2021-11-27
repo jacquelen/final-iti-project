@@ -15,17 +15,17 @@ function Dashmain() {
   const addamorecard = (title, listId) => {
     const d = new Date();
     const newCardid = uuid();
-    const newCard={
-      id:newCardid,
-      title:title,
-      date:d.toLocaleString(),
-      taskdate:" ",
-      priority:" ",
-      type:" ",
-      srtday:d.getDate(),
-      endday:""
-  }
-const list = data.lists[listId];
+    const newCard = {
+      id: newCardid,
+      title: title,
+      date: d.toLocaleString(),
+      taskdate: " ",
+      priority: " ",
+      type: " ",
+      srtday: d.getDate(),
+      endday: "",
+    };
+    const list = data.lists[listId];
     list.cards = [...list.cards, newCard];
     const newState = {
       ...data,
@@ -70,10 +70,12 @@ const list = data.lists[listId];
     localStorage.setItem("addCard", JSON.stringify(newState));
   };
   // need mofification
-  const updatecardtitle = (title, listId,newId) => {
+  const updatecardtitle = (title, listId, newId) => {
     const list = data.lists[listId];
-    for(let i=0 ; i<list.cards.length;i++){
-        (list.cards[i].id === newId) ? list.cards[i].title = localStorage.getItem(newId) : console.log("shokrn gdn yasedy")
+    for (let i = 0; i < list.cards.length; i++) {
+      list.cards[i].id === newId
+        ? (list.cards[i].title = localStorage.getItem(newId))
+        : console.log("shokrn gdn yasedy");
     }
     const newState = {
       ...data,
@@ -84,7 +86,6 @@ const list = data.lists[listId];
     };
     setDate(newState);
     localStorage.setItem("addCard", JSON.stringify(newState));
-
   };
   const setdatetask = (date, listId) => {
     const list = data.lists[listId];
@@ -146,7 +147,6 @@ const list = data.lists[listId];
       };
       setDate(newState);
       localStorage.setItem("addCard", JSON.stringify(newState));
-
     }
   };
 
@@ -185,27 +185,25 @@ const list = data.lists[listId];
                     <Inputcontainer type="list" />
                     {provided.placeholder}
                   </div>
-                  <Link to={{ pathname:"/Tableboard", state: data}}  >
-           <Button className="table-position"
-            style={{background:"None"
-            ,border:"transparent",
-            borderBottom:"2px solid #fff",
-            borderLeft:"2px solid #fff",
-            color:"#fff",
-            backgroundColor:"#c5d4d6",
-            padding:"0.5em",
-            borderRadius:"0.5em",
-            position: "absolute",
-            top: "4.78em",
-            right:"14em" ,
-        
-        }}
+                  <Link to={{ pathname: "/Tableboard", state: data }}>
+                    <Button
+                      className="table-position"
+                      style={{
+                        background: "None",
+                        border: "transparent",
 
-               >
-               Table aboard
-            </Button>
-              </Link>
-
+                        color: "#fff",
+                        backgroundColor: "#ff7d85",
+                        padding: "0.5em",
+                        borderRadius: "0.5em",
+                        position: "absolute",
+                        top: "4.99em",
+                        right: "14em",
+                      }}
+                    >
+                      Table aboard
+                    </Button>
+                  </Link>
                 </div>
                 {/* </div> */}
               </div>

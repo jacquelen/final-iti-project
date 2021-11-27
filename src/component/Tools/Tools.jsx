@@ -7,10 +7,10 @@ export const Tools = () => {
     <section className="container py-5">
       <Fade top>
         <div className=" text-center tool py-4 ">
-          <h2 className="position-relative pb-3">
+          <h2 className="position-relative pb-3 header-color ">
             A TOOL THAT ADAPTS TO YOUR NEEDS
           </h2>
-          <p className="pt-4">
+          <p className="pt-4 text-color-gray">
             <span className="brink-pink-text">ASTRO</span> Project helps you
             stay in full control of all your projects and keep track of all the
             moving parts
@@ -30,8 +30,10 @@ export const Tools = () => {
                 />
               </figure>
               <div>
-                <h6 className="py-4">Stay organised</h6>
-                <p>priorities, and assign them to your teammates to work on</p>
+                <h6 className="py-4 header-color ">Stay organised</h6>
+                <p className="text-color-gray">
+                  priorities, and assign them to your teammates to work on
+                </p>
               </div>
             </div>
           </div>
@@ -44,8 +46,8 @@ export const Tools = () => {
                 <img src="../../assets/fair.svg" className="w-75" alt="" />
               </figure>
               <div>
-                <h6 className="py-4">Manage all your tasks</h6>
-                <p>
+                <h6 className="py-4 header-color">Manage all your tasks</h6>
+                <p className="text-color-gray">
                   Bring multiple projects under the same roof to create a
                   single. actionable task list
                 </p>
@@ -66,8 +68,10 @@ export const Tools = () => {
                 />
               </figure>
               <div>
-                <h6 className="py-4">Centralize all your communication</h6>
-                <p>
+                <h6 className="py-4 header-color">
+                  Centralize all your communication
+                </h6>
+                <p className="text-color-gray">
                   Share project plans. and files in a central hub, your project
                   management software
                 </p>
@@ -83,8 +87,10 @@ export const Tools = () => {
                 <img src="../../assets/fair (1).svg" className="w-75" alt="" />
               </figure>
               <div>
-                <h6 className="py-4">Never miss your deadlines</h6>
-                <p>
+                <h6 className="py-4 header-color ">
+                  Never miss your deadlines
+                </h6>
+                <p className="text-color-gray">
                   Get automatic reminders when tasks and projects approach their
                   due dates
                 </p>
