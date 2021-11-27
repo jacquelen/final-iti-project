@@ -5,7 +5,7 @@ import { Drawer } from "@mui/material";
 import { InputBase, Typography } from "@mui/material";
 import storeApi from "../uitilty/storeApi";
 
-function Card({ card, index, id,tablecard }) {
+function Card({ card, index, id,tablecard ,data,listId,list}) {
   const [open, setOpen] = useState(false);
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
@@ -199,7 +199,7 @@ function Card({ card, index, id,tablecard }) {
               onClose={() => setpopupClose(false)}
             >
               <PopUp trigger={buttonPopup} setTrigger={setbuttonPopup} taskdate={localStorage.getItem(`${card.id}`)} recentdate={card.date} 
-              card={card}   typecard={card.type}>
+              card={card}   typecard={card.type} data={data} listId={listId} list={list}>
                 <div className="d-flex justify-content-between">
                   <h3>{card.title} </h3>
                   <span className="clear-icon" onClick={handleClosePopUP}>

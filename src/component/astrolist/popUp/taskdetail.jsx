@@ -6,11 +6,22 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard}){
+function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard,data,listId,list}){
+
     const [value, onChange] = useState(new Date());
-    const [priority, setpriority]=useState("")
+    const [priority, setpriority]=useState(card.priority||"")
     // periority-----------------> local storage
     const handleChange = (event) => { 
+   console.log(data)
+   const selectPriority = data.lists[listId]
+   for (let i = 0; i < selectPriority.cards.length; i++) {
+    if (selectPriority.cards[i].id === event.target.id) {
+        selectPriority.cards[i].priority = event.target.value
+        selectPriority.cards[i].type = event.target.value
+      }
+      else console.log("shokrn gdn yasedy");
+  }
+   console.log(selectPriority)
         setpriority(event.target.value);
         card.priority=event.target.value
         card.typecard=event.target.value
@@ -24,10 +35,15 @@ function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard}){
         if(card.typecard==="HIGH"){
                 card.typecard="#FA8072"
             }
-        
-
-        console.log(card,"cardpriority2222222222")
-        console.log(card.priority,"cardpriorityone")
+            const newState = {
+              ...data,
+              lists: {
+                ...data.lists,
+                [listId]: selectPriority,
+              },
+            };
+           
+            localStorage.setItem("addCard", JSON.stringify(newState));
       };
 
     // 
@@ -69,9 +85,9 @@ function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard}){
           onChange={handleChange}
           label="Age"
         >
-          <MenuItem value={"HIGH"} style={{fontWeight:"bolder",color:"#FA8072"}}  >high</MenuItem>
-          <MenuItem value={"MEDIUM"} style={{fontWeight:"bolder",color:"#90EE90"}} >medium</MenuItem>
-          <MenuItem value={"LOW"}  style={{fontWeight:"bolder",color:"#B0E0E6"}}>low</MenuItem>
+          <MenuItem value={"HIGH"} id={card.id} style={{fontWeight:"bolder",color:"#FA8072"}}  >high</MenuItem>
+          <MenuItem value={"MEDIUM"}id={card.id} style={{fontWeight:"bolder",color:"#90EE90"}} >medium</MenuItem>
+          <MenuItem value={"LOW"} id={card.id} style={{fontWeight:"bolder",color:"#B0E0E6"}}>low</MenuItem>
         </Select>
       </FormControl>
 

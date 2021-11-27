@@ -244,6 +244,9 @@ const PopUp = (props) => {
             recentdate={props.recentdate}
             card={props.card}
             typecard={props.typecard}
+            data={props.data}
+            listId={props.listId}
+            list={props.list}
           />
         </div>
       </div>

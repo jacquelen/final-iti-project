@@ -20,8 +20,8 @@ function Dashmain() {
       title: title,
       date: d.toLocaleString(),
       taskdate: " ",
-      priority: " ",
-      type: " ",
+      priority: "",
+      type: "",
       srtday: d.getDate(),
       endday: "",
     };
@@ -179,7 +179,7 @@ function Dashmain() {
                 <div className="d-flex align-items-start">
                   {data.listIds.map((listId, index) => {
                     const list = data.lists[listId];
-                    return <Dashboard list={list} key={listId} index={index} />;
+                    return <Dashboard list={list} data={data} listId={listId} index={index} />;
                   })}
                   <div className="">
                     <Inputcontainer type="list" />

@@ -9,8 +9,8 @@ import { Draggable, Droppable } from 'react-beautiful-dnd'
 
 
 
-function Dashboard ({list, index}){
-  
+function Dashboard ({list, data,index,listId}){
+  console.log(listId,"frrom dashborad")
     return(
         <Draggable  draggableId={list.id} index={index}>
     {(provided)=>(
@@ -34,7 +34,7 @@ style={{backgroundColor:"#eee",
             <div ref={provided.innerRef}{...provided.droppableProps} style={{marginTop:"2em"}}>
 
    {list.cards.map((card ,index)=>{
-   return <Card card={card} key={card.id} index={index} id={list.id} date={card.date} />
+   return <Card card={card} key={card.id} data={data} index={index}listId={listId} list={list} id={list.id} date={card.date} />
      })}
 
      {provided.placeholder}

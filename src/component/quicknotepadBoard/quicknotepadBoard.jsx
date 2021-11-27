@@ -4,23 +4,7 @@ import {v4 as uuid}from "uuid"
 import { Addnote } from './addnote'
 import "./not.css"
 function QuicknotepadBoard(){
-    const [notes,setNotes]=useState([
-        {
-         id:uuid()  ,
-        text:"this is my first note",
-        date:"15/11/2021"
-        },
-        {
-            id:uuid()  ,
-           text:"this is my 2 note",
-           date:"15/11/2021"
-        },
-        {
-            id:uuid()  ,
-           text:"this is my 3 note",
-           date:"15/11/2021"
-        },
-])
+    const [notes,setNotes]=useState(JSON.parse(localStorage.getItem("notepd"))||[])
 
 const [searchtext]=useState('')
 
@@ -32,13 +16,13 @@ const [searchtext]=useState('')
                date:date.toLocaleDateString()
            }
            const newNotes=[...notes,newNote]
-           setNotes(newNotes)
+           localStorage.setItem("notepd",JSON.stringify(newNotes))
+           setNotes(JSON.parse(localStorage.getItem("notepd")))
        } 
 
        const deleteNote=(id)=>{
           const newNotes= notes.filter((note)=>note.id !==id)
           setNotes(newNotes)
-
        }
     return(
         <>
