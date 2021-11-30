@@ -6,7 +6,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 
-function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard,data,listId,list}){
+function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard,data,listId}){
 
     const [value, onChange] = useState(new Date());
     const [priority, setpriority]=useState(card.priority||"")
@@ -74,7 +74,34 @@ function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard,dat
          <p className="fw-light" style={{width:"fit-content",
          padding:"0.5em", borderRadius:"1em",
         //  dare function------------------->locale Sstorage
-          backgroundColor:"#5c7a78",color:"white"}}> {(card.endday - card.srtday) < 0 ? "Enter corrcet date for this task":`you have only ${card.endday- card.srtday} days to complete this task`   }    </p>
+          backgroundColor:"#5c7a78",color:"white"}}> 
+          {
+            (() => {
+              if(card.srtMnth===card.endMnth) {
+                 if(card.srtday<=card.endday){
+                   return (`
+                     you have only ${card.endday- card.srtday} days to complete this task 
+                  ` )
+              }
+              if(card.srtday>card.endday){
+                return(`
+                  enter correct date
+               ` )
+              }
+              } 
+              if (card.endMnth>card.srtMnth) {
+                return (`
+                  you have only ${(30-card.srtday)+card.endday} days to complete this task
+                `)
+              } 
+              if(card.endMnth<card.srtMnth){
+                return(`
+                  enter correct date 
+                `)
+              }            
+            })()
+            }
+</p>
          {/*  */}
          <div className="mt-5">
              <p className="fw-bold"> -Add priority to the card :</p>

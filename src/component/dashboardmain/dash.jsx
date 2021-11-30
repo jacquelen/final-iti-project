@@ -25,6 +25,8 @@ function Dashmain() {
       srtday: d.getDate(),
       endday: "",
       checkList:"",
+      srtMnth:d.getMonth(),
+      endMnth:""
     };
     const list = data.lists[listId];
     list.cards = [...list.cards, newCard];

@@ -10,7 +10,8 @@ const cards =[
         typecard:"#FA8072 ",
         srtday:d.getDate(),
         endday:"",
-
+        srtMnth:d.getMonth(),
+        endMnth:""  
     },
     {
         id:'2',
@@ -21,7 +22,9 @@ const cards =[
         typecard:"#B0E0E6 ",        
         srtday:d.getDate(),
         endday:"",
-
+        srtMnth:d.getMonth(),
+        endMnth:""
+  
     },
     {
         id:'3',
@@ -32,7 +35,8 @@ const cards =[
         typecard:"#FA8072 ",
         srtday:d.getDate(),
         endday:"",
-
+        srtMnth:d.getMonth(),
+        endMnth:""  
     },
 ]
  const data={

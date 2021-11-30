@@ -302,6 +302,8 @@ const PopUp = (props) => {
             data={props.data}
             listId={props.listId}
             list={props.list}
+            month={props.card.endMnth}
+            monthsrt={props.card.srtMnth}
           />
         </div>
       </div>
