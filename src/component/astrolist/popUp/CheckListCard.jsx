@@ -4,9 +4,12 @@ const CheckListCard = (props) => {
   const [inputVal, setInputVal] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit({ id: Math.floor(Math.random() * 1000), text: inputVal });
-    setInputVal("");
-    props.setTrigger(false);
+    console.log(e.target.id,"asdasdasdassd");
+    if(props.cardId===e.target.id){
+      props.onSubmit({ id: Math.floor(Math.random() * 1000), text: inputVal });
+      setInputVal("");
+      props.setTrigger(false);
+    }
   };
   return props.trigger ? (
     <div className="checkListCard shadow p-4">
@@ -35,7 +38,7 @@ const CheckListCard = (props) => {
           </span>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} id={props.cardId}>
           <label className="form-label">Title</label>
           <input
             type="text"

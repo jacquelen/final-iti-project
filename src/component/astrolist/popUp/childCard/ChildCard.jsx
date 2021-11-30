@@ -3,7 +3,7 @@ const ChildCard = (props) => {
   const [childInput, setchildInput] = useState("");
   const handleCardSubmit = (e) => {
     e.preventDefault();
-    props.onSubmit({ id: props.todoID, text: childInput, });
+    props.onSubmit({ id: props.todoID, text: childInput, },props.todoID);
     setchildInput("");
     props.setTrigger(false);
   };

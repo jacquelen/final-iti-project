@@ -2,32 +2,37 @@ import {useState } from "react";
 import ChildCard from "./childCard/ChildCard";
 import TodoListChild from "./childCard/todoListChild";
 
-const TodoList = ({ todos, removeTodo }) => {
+const TodoList = ({ todos, removeTodo,card }) => {
   const [showChild, setshowChild] = useState(false);
 
   const [width, setWidth] = useState(0);
   const [todosChild, settodosChild] = useState(
-    JSON.parse(localStorage.getItem("todosss")) || []
+    JSON.parse(localStorage.getItem(`tasks-${card.id}`)) || []
   );
   const [tdId, setTdId] = useState();
+  // const [res, setRes] = useState([]);
 
-  const addTodoChild = (todo) => {
+  const addTodoChild = (todo,id) => {
     if (!todo.text || /^\s*$/.test(todo.text)) {
       return;
     }
     const newTodos = [todo, ...todosChild];
-    settodosChild(newTodos);
-    localStorage.setItem("todosss", JSON.stringify(newTodos));
+    localStorage.setItem(`tasks-${todo.id}`, JSON.stringify(newTodos));
+    settodosChild(JSON.parse(localStorage.getItem(`tasks-${todo.id}`)));
+    console.log(todo.id,"todo",id,"idddd");
   };
-  const completeTodoChild = (resIndex) => {
+  const completeTodoChild = (resIndex,id,bIndex) => {
     let updatedTodos = todosChild.map((todo, index) => {
       if (index === resIndex) {
         todo.isComplete = !todo.isComplete;
         // bug
         const completed = JSON.stringify(todosChild).match(/true/g);
         console.log("1111111");
-        if (completed) {
-          setWidth((completed.length / todosChild.length) * 100);
+        console.log(`${index} of map`, resIndex + " coming from resindex",bIndex +' the bindex')
+        if (completed && index === resIndex&& todo.id===id) {
+          localStorage.setItem(`progressbar${todo.id}`,(completed.length / todosChild.length) * 100)
+          setWidth(localStorage.getItem(`progressbar${todo.id}`));
+          
           console.log("2222222");
         } else {
           setWidth(0);
@@ -38,13 +43,13 @@ const TodoList = ({ todos, removeTodo }) => {
       return todo;
     });
 
-    localStorage.setItem("todosss", JSON.stringify(updatedTodos));
+    localStorage.setItem(`compeletedTask-${resIndex}`, JSON.stringify(updatedTodos));
     settodosChild(updatedTodos);
   };
 
   const removeTodoChild = (resIndex) => {
     const removedArr = [...todosChild].filter((todo, index, arr) => {
-      const completed = localStorage.getItem("todosss").match(/true/g);
+      const completed = localStorage.getItem(`compeletedTask-${resIndex}`).match(/true/g);
       if (completed) {
         setWidth((completed.length / arr.length) * 100);
       } else {
@@ -54,7 +59,7 @@ const TodoList = ({ todos, removeTodo }) => {
     });
 
     settodosChild(removedArr);
-    localStorage.setItem("todosss", JSON.stringify(removedArr));
+    localStorage.setItem(`tasks-${resIndex}`, JSON.stringify(removedArr));
   };
   return todos.map((todo, index) => (
     <div key={index}>
@@ -115,6 +120,7 @@ const TodoList = ({ todos, removeTodo }) => {
             <TodoListChild
               todos={todosChild}
               todoID={todo.id}
+              bIndex={index}
               completeTodoChild={completeTodoChild}
               removeTodoChild={removeTodoChild}
             />

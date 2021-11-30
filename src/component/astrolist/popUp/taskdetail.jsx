@@ -13,6 +13,8 @@ function Taskdetail({triggers,setTriggers,taskdate ,recentdate,card,typecard,dat
     // periority-----------------> local storage
     const handleChange = (event) => { 
    console.log(data)
+   console.log(taskdate)
+   
    const selectPriority = data.lists[listId]
    for (let i = 0; i < selectPriority.cards.length; i++) {
     if (selectPriority.cards[i].id === event.target.id) {

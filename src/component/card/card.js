@@ -10,8 +10,8 @@ function Card({ card, index, id,tablecard ,data,listId,list}) {
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
   const [newtitle, setNewtitle] = useState(card.title);
-  const { updatecardtitle, setdatetask } = useContext(storeApi);
-  const handleOpenPopUP = () => {
+  const { updatecardtitle } = useContext(storeApi);
+  const handleOpenPopUP = (e) => {
     setbuttonPopup(true);
     setpopupClose(true);
   };
@@ -36,198 +36,190 @@ function Card({ card, index, id,tablecard ,data,listId,list}) {
     card.taskdate=e.target.value
     const d= new Date(e.target.value)
     const f =d.getDate()
-    card.endday=f ;    
+    card.endday=f ;   
+    console.log("dateeeeeeeeeee",card.id); 
   };
 // console.log(localStorage.getItem(`${card.id}`,"datttttttttttttttttte"))
-  return (
-    <>
-      <Draggable draggableId={card.id} index={index}>
-        {(provided) => (
-          <div
-            ref={provided.innerRef}
-            {...provided.dragHandleProps}
-            {...provided.draggableProps}
-          >
-                        <>
-            {open ? (
-              <div
-                style={{
-                  backgroundColor: "white",
-                }}
-              >
-                <InputBase
-                  onChange={handleOnChanges}
-                 
-                  value={newtitle}
-                  autoFocus
-                  id={card.id}
-                  style={{
-                    background: "#eee",
-                    width: "100%",
-                    padding: "0.5em",
-                  }}
-                  onBlur={handleBlur}
-                />
-              </div>
-            ) : (
-              <div
-                className="row justify-content-center align-items-baseline"
-                style={{
-                  backgroundColor: "white",
-                  margin: "0.3em",
-                  marginBottom: "0.5em",
-                  borderRadius: "0.5em",
-                }}
-              >
-                <div className="col-9">
-                  <Typography
-                    onClick={() => {
-                      setOpen(!open);
-                    }}
-                    style={{
-                      fontSize: "1.2rem",
-                      fontWeight: "bold",
-                      // padding:"0.1em",
-                      backgroundColor: "white",
-                      margin: "0.5em",
-                      //   wordBreak:"break-word",
-                      wordBreak: "break-all",
-                      lineHeight: "1.2rem",
-                    }}
-                  >
-                    {newtitle}
-                  </Typography>
-                  <div className="d-flex mt-5">
-                    <div className="col-6">task date:</div>
-                    <div className="col-3">
-                      <input
-                        style={{
-                          flexGrow: "1",
-                          marginBottom: "0.5em",
-                          border: "none",
-                          borderTop: "1px solid #ccc",
-                        }}
-                        type="date"
-                        id="taskday"
-                        name="taskday"
-                        onChange={getdatevalue}
-                      />
-                    </div>
-                  </div>
-                  {/*  */}
-                  <p
-                style={{
-                  textAlign:"center",
-                  fontSize:"0.7em",
-                  backgroundColor:card.typecard,
-                  padding:"0.1em",
-                  fontWeight: "lighter",
-                  marginBottom: "-0.01em",
-                  marginLeft:"18.25em",
-                  width: "7em",
-                  borderRadius: "0.3em",
-                }}
-                >
-
-                {card.priority}
-                </p>
-
-                  {/*  */}
-                  <p
-                    style={{
-                      fontWeight: "lighter",
-                      fontSize: "0.85rem",
-                      backgroundColor: "#fef68a",
-                      marginBottom: "-0.01em",
-                      width: "20.8em",
-                      paddingLeft: "0.5em",
-                      borderRadius: "0.5em",
-                    }}
-                  >
-                    <span
-                      style={{
-                        paddingRight: "0.2em",
-                      }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        fill="currentColor"
-                        className="bi bi-alarm"
-                        viewBox="0 0 16 16"
-                      >
-                        <path d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z" />
-                        <path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z" />
-                      </svg>
-                    </span>
-                    {card.date}
-                  </p>
-
-                  {/*  */}
-                </div>
-
-                <div className="col-3 p-1">
-                  <span
-                    className="text-primary f-1"
-                    style={{
-                      fontSize: "1.2em",
-                      //   padding:"0.5em",
-                      backgroundColor: "white",
-                    }}
-                    onClick={handleOpenPopUP}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-bookmark-heart-fill"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M2 15.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v13.5zM8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
-            )}
-            {/*  */}
-</>
-            <Drawer
-              anchor="top"
-              open={popupClose}
-              onClose={() => setpopupClose(false)}
+return (
+  <>
+    <Draggable draggableId={card.id} index={index}>
+      {(provided) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.dragHandleProps}
+          {...provided.draggableProps}
+        >
+                      <>
+          {open ? (
+            <div
+              style={{
+                backgroundColor: "white",
+              }}
             >
-              <PopUp trigger={buttonPopup} setTrigger={setbuttonPopup} taskdate={localStorage.getItem(`${card.id}`)} recentdate={card.date} 
-              card={card}   typecard={card.type} data={data} listId={listId} list={list}>
-                <div className="d-flex justify-content-between">
-                  <h3>{card.title} </h3>
-                  <span className="clear-icon" onClick={handleClosePopUP}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      className="bi bi-x-lg"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
-                      />
-                      <path
-                        fillRule="evenodd"
-                        d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
-                      />
-                    </svg>
+              <InputBase
+                onChange={handleOnChanges}
+               
+                value={newtitle}
+                autoFocus
+                id={card.id}
+                style={{
+                  background: "#eee",
+                  width: "100%",
+                  padding: "0.5em",
+                }}
+                onBlur={handleBlur}
+              />
+            </div>
+          ) : (
+            <div
+              className="row justify-content-center align-items-baseline"
+              style={{
+                backgroundColor: "white",
+                margin: "0.3em",
+                marginBottom: "0.5em",
+                borderRadius: "0.5em",
+              }}
+            >
+              <div className="col-9">
+                <Typography
+                  onClick={() => {
+                    setOpen(!open);
+                  }}
+                  style={{
+                    fontSize: "1.2rem",
+                    fontWeight: "bold",
+                    // padding:"0.1em",
+                    backgroundColor: "white",
+                    margin: "0.5em",
+                    //   wordBreak:"break-word",
+                    wordBreak: "break-all",
+                    lineHeight: "1.2rem",
+                  }}
+                >
+                  {newtitle}
+                </Typography>
+                {/*  */}
+                <p
+                  style={{
+                    fontWeight: "lighter",
+                    fontSize: "0.7rem",
+                    backgroundColor: "#fff",
+                    marginBottom: "-0.01em",
+                    width: "20.8em",
+                    paddingLeft: "0.8em",
+                    borderRadius: "0.5em",
+                  }}
+                >
+                  {card.date} {"  .  "}
+                  <span
+                    style={{
+                      paddingLeft: "0.5em",
+                      fontSize:"0.73rem"
+                    }}
+                  >
+                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-card-heading" viewBox="0 0 16 16">
+<path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+<path d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-1z"/>
+</svg>
                   </span>
+                </p>
+                {/*  */}
+                <p
+              style={{
+                textAlign:"center",
+                fontSize:"0.7em",
+                backgroundColor:card.typecard,
+                padding:"0.1em",
+                fontWeight: "lighter",
+                marginBottom: "-0.01em",
+                marginLeft:"18.25em",
+                width: "7em",
+                borderRadius: "0.3em",
+              }}
+              >
+
+              {card.priority}
+              </p>
+
+
+                {/*  */}
+                <div className="d-flex mt-2">
+                  <div className="col-6">Due date:</div>
+                  <div className="col-3">
+                    <input
+                      style={{
+                        flexGrow: "1",
+                        marginBottom: "0.5em",
+                        border: "none",
+                        borderTop: "1px solid #ccc",
+                      }}
+                      type="date"
+                      id="taskday"
+                      name="taskday"
+                      onChange={getdatevalue}
+                    />
+                  </div>
                 </div>
-              </PopUp>
-            </Drawer>
-          </div>
-        )}
-      </Draggable>
-    </>
-  );
+                {/*  */}
+               
+                {/*  */}
+              </div>
+
+              <div className="col-3 ps-5 ">
+                <span
+                  className="text-primary f-1"
+                  style={{
+                    fontSize: "1.2em",
+                    //   padding:"0.5em",
+                    backgroundColor: "white",
+                    color:"#ddd"
+                  }}
+                  onClick={handleOpenPopUP}
+                >
+                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-pencil" viewBox="0 0 16 16">
+<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+</svg>
+                </span>
+              </div>
+            </div>
+          )}
+          {/*  */}
+</>
+          <Drawer
+            anchor="top"
+            open={popupClose}
+            onClose={() => setpopupClose(false)}
+          >
+            <PopUp trigger={buttonPopup} setTrigger={setbuttonPopup} taskdate={localStorage.getItem(`${card.id}`)} recentdate={card.date} 
+            card={card}   typecard={card.type} data={data} listId={listId} list={list}>
+              <div className="d-flex justify-content-between">
+                <h3>{card.title} </h3>
+                <span className="clear-icon" onClick={handleClosePopUP}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-x-lg"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                    />
+                    <path
+                      fillRule="evenodd"
+                      d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                    />
+                  </svg>
+                </span>
+              </div>
+            </PopUp>
+          </Drawer>
+        </div>
+      )}
+    </Draggable>
+  </>
+);
 }
 export { Card };

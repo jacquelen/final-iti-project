@@ -4,6 +4,7 @@ import Fade from "react-reveal/Fade";
 import { Link } from "react-router-dom";
 import video from "./produc.mp4";
 import { IframVideo } from "./IframVideo";
+import { Drawer } from "@mui/material";
 
 function Header() {
   const [handelVideo, sethandelVideo] = useState(false);
@@ -32,29 +33,20 @@ function Header() {
               </Fade>
               <Fade bottom>
                 <div className="btns mt-5">
-                  <button
-                    type="button"
-                    className="btn shadow bg-white text-color-header me-4 btn-hover"
-                    onClick={playVideo}
-                  >
-                    Watch Video
-                  </button>
-                  {handelVideo ? (
-                    <>
-                      {" "}
-                      <IframVideo className="videoo" />
-                      <button onClick={closeVid}>x</button>
-                    </>
-                  ) : (
-                    ""
-                  )}
-                  <button type="button" className="btn shadow btn2-hover">
+                <button type="button" className="btn shadow btn2-hover me-4 ">
                     <Link
                       className="btn-link text-decoration-none "
                       to="/SignUp"
                     >
                       Start For free
                     </Link>
+                  </button>
+                  <button
+                    type="button"
+                    className="btn shadow bg-white text-color-header btn-hover"
+                    onClick={playVideo}
+                  >
+                    Watch Video
                   </button>
                 </div>
               </Fade>
@@ -70,6 +62,35 @@ function Header() {
             </Fade>
           </div>
         </div>
+        <Drawer
+          anchor="top"
+          open={handelVideo}
+          onClose={() => sethandelVideo(false)}
+        >
+          <IframVideo trigger={handelVideo}>
+            <div className="d-flex justify-content-end">
+              <span className="clear-icon" onClick={closeVid}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-x-lg"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                  />
+                  <path
+                    fillRule="evenodd"
+                    d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </IframVideo>
+        </Drawer>
       </header>
     </>
   );

@@ -46,7 +46,7 @@ const Comments = ({ comments, removeComment, time }) => {
               width="16"
               height="16"
               fill="currentColor"
-              class="bi bi-x-lg"
+              className="bi bi-x-lg"
               viewBox="0 0 16 16"
             >
               <path

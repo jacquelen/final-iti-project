@@ -72,6 +72,14 @@ h1 {
 .btn2-hover:hover .btn-link {
   color: #013e5a !important;
 }
+.video-pop-up {
+  background-color: white;
+  margin: 50px auto;
+  min-height: 500px;
+  border-radius: 10px;
+  max-width: 900px;
+  min-width: 900px;
+}
 @media only screen and (min-width: 576px) {
 }
 @media only screen and(min-width: 768px) {

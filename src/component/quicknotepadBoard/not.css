@@ -1,6 +1,6 @@
 
 .note{
-    background-color: #fef68a;
+    background-color: #eee;
     margin-bottom: 1em;
     border-radius: 1em;
     padding: 1rem;
@@ -25,16 +25,16 @@
     background-color: #67d7cc;
 }
 textarea{
-    border: none;
+    border: transparent;
     resize: none;
     background-color: #67d7cc;
 }
 textarea :focus{
-outline: none;
+outline: transparent;
 }
 .save{
     background-color: #e1e1e1;
-    border: none;
+    border: transparent;
     border-radius: 15px;
     padding: 5px 10px 5px 10px;
 
@@ -55,10 +55,10 @@ outline: none;
     margin-bottom: 1.5em;
 }
 .search input{
-    border: none;
+    border: transparent;
     background-color:rgb(233, 233, 233) ;
 
 }
 .search input :focus{
-    outline: none;
+    outline: transparent;
 }

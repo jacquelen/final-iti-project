@@ -123,15 +123,15 @@ const SignUp = () => {
                         </div>
                       </div>
 
-                      {/* <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
+                      {/* <div className="d-flex flex-row align-items-center mb-4">
+                    <i className="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div className="form-outline flex-fill mb-0">
                       <input
                         type="password"
                         id="form3Example4cd"
-                        class="form-control"
+                        className="form-control"
                       />
-                      <label class="form-label" for="form3Example4cd">
+                      <label className="form-label" for="form3Example4cd">
                         Repeat your password
                       </label>
                     </div>

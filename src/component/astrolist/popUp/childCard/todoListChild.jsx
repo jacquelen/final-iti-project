@@ -1,10 +1,10 @@
 const TodoListChild = ({
+  bIndex,
   todos,
   todoID,
   completeTodoChild,
   removeTodoChild,
 }) => {
-  
   return todos.map(
     (todo, index) =>
       todoID === todo.id && (
@@ -15,7 +15,7 @@ const TodoListChild = ({
               <input
                 type="checkbox"
                 onChange={() => {
-                  completeTodoChild(index);
+                 completeTodoChild(index,todo.id,bIndex);
                 }}
                 checked={todo.isComplete ? true : null}
               />
@@ -58,5 +58,4 @@ const TodoListChild = ({
       )
   );
 };
-
 export default TodoListChild;
