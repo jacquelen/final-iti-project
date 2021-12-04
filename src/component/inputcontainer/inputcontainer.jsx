@@ -1,42 +1,42 @@
-import React, { useState } from 'react'
-import { Paper,Typography, Collapse} from "@mui/material"
-import { Inputcard } from './inputcard'
-import "./inputcontiner.css"
+import React, { useState } from "react";
+import { Paper, Typography, Collapse } from "@mui/material";
+import { Inputcard } from "./inputcard";
+import "./inputcontiner.css";
 
-function Inputcontainer({listId, type}){
-const [open,setOpen]=useState(false);
+function Inputcontainer({ listId, type }) {
+  const [open, setOpen] = useState(false);
 
-    return(
-        <>
-        <Collapse in={open}>
-             <Inputcard setOpen={setOpen}  listId={listId} type={type}/>
-        </Collapse>
-  {/*  */}
-        <Collapse in={!open}>
-        <Paper 
-        style={{
-            margin:"auto",
-            backgroundColor:"lightblue",
-            border:"1px solid #EBECF0",
-            width:"15rem",
-            marginBottom:"1em",
-            marginTop:"1em",
-        }}
-        className="add"
-        onClick={()=>setOpen(!open)}
+  return (
+    <>
+      <Collapse in={open}>
+        <Inputcard setOpen={setOpen} listId={listId} type={type} />
+      </Collapse>
+      {/*  */}
+      <Collapse in={!open}>
+        <Paper
+          style={{
+            margin: "auto",
+            backgroundColor: "lightblue",
+            border: "1px solid #EBECF0",
+            width: "15rem",
+            marginBottom: "1em",
+            marginTop: "1em",
+          }}
+          className="add"
+          onClick={() => setOpen(!open)}
         >
-            <Typography className="add"
+          <Typography
+            className="add"
             style={{
-                // width:"100%",
-                // padding:"0.3em",
-                textAlign:"center"
+              cursor: "pointer",
+              textAlign: "center",
             }}
-            >
-               {type==='card'?"+ Add a Card": "Add another list"}
-            </Typography>
+          >
+            {type === "card" ? "+ Add a Card" : "Add another list"}
+          </Typography>
         </Paper>
-        </Collapse>
-        </>
-    )
+      </Collapse>
+    </>
+  );
 }
-export {Inputcontainer}
+export { Inputcontainer };

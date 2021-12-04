@@ -11,7 +11,9 @@ const cards =[
         srtday:d.getDate(),
         endday:"",
         srtMnth:d.getMonth(),
-        endMnth:""  
+        endMnth:"" ,
+        srtyear:d.getFullYear(),
+        endyear:""  
     },
     {
         id:'2',
@@ -23,7 +25,9 @@ const cards =[
         srtday:d.getDate(),
         endday:"",
         srtMnth:d.getMonth(),
-        endMnth:""
+        endMnth:"",
+        srtyear:d.getFullYear(),
+        endyear:""  
   
     },
     {
@@ -36,7 +40,9 @@ const cards =[
         srtday:d.getDate(),
         endday:"",
         srtMnth:d.getMonth(),
-        endMnth:""  
+        endMnth:"" ,
+        srtyear:d.getFullYear(),
+        endyear:""  ,
     },
 ]
  const data={

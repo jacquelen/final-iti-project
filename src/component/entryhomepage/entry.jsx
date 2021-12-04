@@ -2,11 +2,16 @@ import "./entry.css";
 import EntryPopup from "./entryPopup/EntryPopup";
 import { useState } from "react";
 import { Drawer } from "@mui/material";
+import { useContext } from "react";
+import storeApi from "../uitilty/storeApi";
 import SideBar from "./sidebar/SideBar";
+
 function Entrypage() {
   const [buttonPopup, setbuttonPopup] = useState(false);
   const [popupClose, setpopupClose] = useState(false);
   const [inputVal, setInputVal] = useState("");
+  // const data =useContext(storeApi);
+  // console.log(data,"dataaaaaa from entrypage")
   const handleOpenPopUP = () => {
     setbuttonPopup(true);
     setpopupClose(true);
@@ -24,9 +29,11 @@ function Entrypage() {
           </div>
           <div className="col-9">
             <div className="row justify-content-end align-items-baseline p-3">
-              <div className="col-5 me-4">
+              <div className="col me-4 text-left">
                 <h1 className="home-head">Home</h1>
               </div>
+
+{/*
               <div className="col-4 ms-3">
                 <div className="input-group input-group-sm mb-3 home-input">
                   <span className="input-group-text" id="inputGroup-sizing-sm">
@@ -79,6 +86,8 @@ function Entrypage() {
                   </svg>
                 </span>
               </div>
+
+              */}
               <div className="row ">
                 <div className="col-11  mt-5 border-bottom">
                   <span className="fs-1 p-2">

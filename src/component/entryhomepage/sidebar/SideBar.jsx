@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 function SideBar() {
   return (
     <div className="nav-left-page">
-      <h3 className="nav-header">Astro</h3>
       <nav className="nav-content">
-        <ul className="nav-ul">
+        <ul className="nav-ul pt-2">
           <Link to={"/Entrypage"} className="link">
             <li>
               <span className="me-2">
@@ -46,7 +45,7 @@ function SideBar() {
                   />
                 </svg>
               </span>
-              My Tasks
+              Projects
             </li>
           </Link>
           <Link to={"/QuicknotepadBoard"} className="link">

@@ -7,18 +7,18 @@ import { Manage } from "../manage proj/Manage";
 import PeopleSay from "../whatPeopleSay/PeopleSay";
 import { Features } from "../MSfeatures/features";
 import { Ourteam } from "../ourTeam/ourTeam";
+import Pricing from "../pricingPlan/Pricing";
 
 function Home() {
-  
   return (
     <>
-    
       <Header />
       <WhyUs />
       <Agile />
       <Features />
       <Tools />
       <Manage />
+      <Pricing />
       <Ourteam />
       <PeopleSay />
     </>

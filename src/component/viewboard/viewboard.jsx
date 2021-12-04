@@ -50,11 +50,7 @@ function Viewboard() {
           <div className="row align-items-center justify-content-between">
             <Fade left>
               <div className="col-lg-5">
-                <img
-                  className="w-100"
-                  src="../../assets/Board_View.svg"
-                  alt=""
-                />
+                <img className="w-100" src="../../assets/77.jpg" alt="" />
               </div>
             </Fade>
             <Fade right>
@@ -95,7 +91,7 @@ function Viewboard() {
             </Fade>
             <Fade right>
               <div className="col-lg-5">
-                <img className="w-100" src="../../assets/19962.jpg" alt="" />
+                <img className="w-100" src="../../assets/19962.png" alt="" />
               </div>
             </Fade>
           </div>

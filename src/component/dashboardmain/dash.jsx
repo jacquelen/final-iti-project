@@ -27,6 +27,8 @@ function Dashmain() {
       checkList: '',
       srtMnth: d.getMonth(),
       endMnth: '',
+      srtyear:d.getFullYear(),
+      endyear:""
     };
     const list = data.lists[listId];
     list.cards = [...list.cards, newCard];

@@ -51,7 +51,12 @@ function Asrtolist({ title, listId }) {
               {title}
             </Typography>
           </div>
-          <div className="col-3 p-1">
+          <div className="col-3 ps-5"  
+          style={{
+            // backgroundColor:"red",
+            cursor:"pointer",
+          }}
+          >
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -39,6 +39,8 @@ function Card({ card, index, id, tablecard, data, listId, list }) {
     card.endday = f;
     const M = d.getMonth();
     card.endMnth = M;
+    const y = d.getFullYear()
+    card.endyear=y
   };
   return (
     <>
@@ -173,11 +175,11 @@ function Card({ card, index, id, tablecard, data, listId, list }) {
                     <span
                       className='text-primary f-1'
                       style={{
-                        fontSize: '1.2em',
-                        backgroundColor: 'white',
-                        color: '#ddd',
+                        fontSize: "1.2em",
+                        backgroundColor: "white",
+                        cursor:"pointer",
                       }}
-                      onClick={handleOpenPopUP}
+                        onClick={handleOpenPopUP}
                     >
                       <svg
                         xmlns='http://www.w3.org/2000/svg'
