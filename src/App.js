@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.min.js";
 import NavbarCom from "./component/navbar/NavbarCom";
 import Home from "./component/home/Home";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";

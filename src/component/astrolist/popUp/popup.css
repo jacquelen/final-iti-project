@@ -26,6 +26,7 @@
   background-color: white;
   position: absolute;
   right: 100px;
+  z-index: 1000;
 }
 .complete {
   text-decoration: line-through;

@@ -80,12 +80,13 @@ const NavbarCom = () => {
                 Board
               </Link>
 
-              <button
+              <Link
                 className={`text-decoration-none text-uppercase navList-color list-item list-menu-item2 sm-shadow text-center py-1 px-3 border-0 bg-transparent ${hiddenLogout}`}
+                to="/"
                 onClick={() => auth.signOut()}
               >
                 Logout
-              </button>
+              </Link>
               <img
                 src={x}
                 alt=''

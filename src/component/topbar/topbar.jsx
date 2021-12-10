@@ -24,18 +24,22 @@ function Topbar({ setOpensidemenu }) {
       setcolor("");
     };
   }, [color]);
-
+localStorage.setItem("list",color)
   return (
     <>
+
       <AppBar
         position="static"
         style={{ background: "None", padding: "0.5rem" }}
       >
+        
         <Toolbar>
+
           <h3
             style={{
               flexGrow: 1,
               color: `${color}`,
+              paddingLeft:"3rem",
             }}
             onChange={fontColor}
           >

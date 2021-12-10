@@ -1,0 +1,10 @@
+.hidden {
+    display: none !important;
+  }
+  .sidebar-btn {
+    background: transparent !important;
+    border: none !important;
+    position: absolute;
+    top:12%;
+    left: 2%;
+  }

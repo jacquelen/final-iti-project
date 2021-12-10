@@ -1,3 +1,4 @@
-.dash{
-    margin: 2rem;
+.widthDash{
+width: fit-content !important;
+height: auto;
 }
